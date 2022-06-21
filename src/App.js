@@ -1,22 +1,12 @@
-import logo from './logo.png';
-import './App.css';
+import React from "react";
 
-function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <a
-                    className="App-link"
-                    href="https://github.com/ita-social-projects/BeautyProject"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Our backend repository
-                </a>
-            </header>
-        </div>
-    );
+import MainPage from "./components/main_page/MainPage";
+
+
+class App extends React.Component {
+    render() {
+        return <MainPage/>
+    }
 }
 
 export default App;
