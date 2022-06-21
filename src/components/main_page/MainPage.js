@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from "../../logo.png";
+import logo from "../main_page/assets/logo.png"
 import "./MainPage.css"
 
 class MainPage extends Component {
