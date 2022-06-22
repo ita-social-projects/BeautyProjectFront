@@ -8,7 +8,7 @@ import {
 
 import {MainPage} from "./components/main_page/MainPage";
 import {LoginPage} from "./components/login_page/login_page";
-import {RegisterPage} from "./components/register_page/register_page";
+import RegisterPage from "./components/register_page/register_page";
 
 class App extends React.Component {
     render() {
