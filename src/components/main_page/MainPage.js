@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import logo from "../main_page/assets/logo.png"
+import logo from "./assets/img/logo.png"
 import "./MainPage.css"
 
-class MainPage extends Component {
+export class MainPage extends Component {
     render() {
         return (
             <div className="container">
@@ -21,5 +21,3 @@ class MainPage extends Component {
         );
     }
 }
-
-export default MainPage;
