@@ -52,7 +52,11 @@ const RegisterPage = () => {
 
         } catch (error) {
             const errors = error.response.data
+            console.log(errors)
             for (const currentKey of Object.keys(errors)){
+                if (currentKey === "non_field_errors"){
+                    setError("password", errors[currentKey])
+                }
                 setError(currentKey, errors[currentKey])
             }
         }
