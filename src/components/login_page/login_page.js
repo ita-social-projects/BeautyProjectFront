@@ -1,41 +1,145 @@
 import React from "react";
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import loginIcon from './assets/img/user.svg';
-import uiImg from './assets/img/login.svg';
-import './login_page.css';
+import axios from 'axios';
+import Container from 'react-bootstrap/Container';
+import "./login_page.css";
+import user_image from "./assets/img/user.svg"
+import RegisterPage from "../register_page/register_page";
 
-export class LoginPage extends React.Component{
-    render() {
-        return (
-            <>
-                <Container className="mt-5">
-                    <Row>
-                        <Col lg={4} md={6} sm={12} className="text-center mt-5 p-3">
-                            <img className="icon-img" src={loginIcon} alt="icon"/>
-                            <Form>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Control type="email" placeholder="Enter email" />
-                                </Form.Group>
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+} from "react-router-dom";
 
-                                <Form.Group controlId="formBasicPassword">
-                                    <Form.Control type="password" placeholder="Password" />
-                                </Form.Group>
 
-                                <Button variant="primary btn-block" type="submit">Login</Button>
+const LoginPage = () => {
+    const [formValue, setFormValue] = React.useState({
+        email: "",
+        password: ""
+    });
 
-                                <div className="text-left mt-3">
-                                    <a href="#"><small className="reset">Password Reset</small></a> II
-                                    <a href="#"><small className="reset ml-2"> Quick Recover</small></a>
-                                </div>
-                            </Form>
-                        </Col>
+    const handleSubmit = async (event) => {
+        const loginFormData = new FormData();
+        loginFormData.append("email", formValue.email)
+        loginFormData.append("password", formValue.password)
+        event.preventDefault()
 
-                        <Col lg={8} md={6} sm={12}>
-                            <img className="w-100" src={uiImg} alt=""/>
-                        </Col>
-                    </Row>
-                </Container>
-            </>
-        )
+        const keyArray = ["email", "password"]
+        for (const currentKey of keyArray){
+            let currentElement = document.querySelector(`[name='${currentKey}']`);
+            let currentErrorMessage = currentElement.parentElement.querySelector("p");
+            currentElement.classList.remove("validation_error");
+            currentErrorMessage.classList.remove("error_message_shown");
+        }
+
+        try {
+            const response = await axios({
+                method: "post",
+                url: "http://3.65.253.196/auth/jwt/create/",
+                data: loginFormData,
+                headers: {"Content-Type": "application/json"},
+            });
+
+            const name = "jwt_session";
+            const value = response.data["access"]; 
+            const days = 60;
+
+            var expires = "";
+
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days*24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+        } catch (error) {
+            const errors = error.response.data
+            for (const currentKey of Object.keys(errors)){
+                if (currentKey === "detail") {
+                    setError("email", errors["detail"])
+                    continue
+                }
+                if (currentKey !== "status_code") {
+                    setError(currentKey, errors[currentKey])
+                }
+            }
+        }
     }
+
+    const setError = (key, error_message) => {
+        let currentElement = document.querySelector(`[name='${key}']`);
+        let currentErrorMessage = currentElement.parentElement.querySelector("p");
+        currentElement.classList.add("validation_error");
+        currentErrorMessage.classList.add("error_message_shown");
+        currentErrorMessage.innerText = error_message;
+    }
+
+    const handleChange = (event) => {
+        setFormValue({
+            ...formValue,
+            [event.target.name]: event.target.value
+        });
+    }
+
+    return (
+        <Container>
+            <div className="inner__wrapper">
+               <div className="inner__form__wrapper">
+                   <div className="registration__header__wrapper">
+                       <h1 className="registration__header">Sign in</h1>
+                   </div>
+                   <div className="user__image__wrapper">
+                       <img src={user_image} alt="user image" className="user__image"/>
+                   </div>
+                   <form onSubmit={handleSubmit} className="register__form">
+                       <div className="form__item">
+                           <p className="form_error_message">Error message</p>
+                           <input
+                               type="email"
+                               name="email"
+                               className="form__input"
+                               placeholder={"Email"}
+                               value={formValue.email}
+                               onChange={handleChange}
+                           />
+                       </div>
+                       <div className="form__item">
+                           <p className="form_error_message">Error message</p>
+                           <input
+                               type="password"
+                               name="password"
+                               className="form__input"
+                               placeholder={"Password"}
+                               value={formValue.password}
+                               onChange={handleChange}
+                           />
+                       </div>
+                       <div className="form__item">
+                           <button
+                               type="submit"
+                               className="form__input__button"
+                           >
+                               Submit
+                           </button>
+                       </div>
+                   </form>
+                   <div className="navigation__button__wrapper">
+                       <div className="navigation__button__text">
+                           Don`t have an account? Create it
+                       </div>
+                       <div className="navigation__button">
+                           <Link to="/register">Sign up</Link>
+                       </div>
+                       <Routes>
+                           <Route path="/register" element={<RegisterPage/>}>
+                           </Route>
+                       </Routes>
+                   </div>
+               </div>
+            </div>
+        </Container>
+    )
 }
+
+export default LoginPage

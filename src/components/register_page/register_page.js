@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 
 
-import {LoginPage} from "../login_page/login_page";
+import LoginPage from "../login_page/login_page";
 
 const RegisterPage = () => {
     const [formValue, setFormValue] = React.useState({
