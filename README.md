@@ -1,1 +1,3 @@
 # BeautyProjectFront
+
+This is frontend.
