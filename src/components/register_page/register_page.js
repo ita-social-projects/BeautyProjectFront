@@ -43,7 +43,7 @@ const RegisterPage = () => {
         try {
             const response = await axios({
                 method: "post",
-                url: "http://3.65.253.196/auth/users/",
+                url: "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/auth/users/",
                 data: loginFormData,
                 headers: {"Content-Type": "application/json"},
             });
