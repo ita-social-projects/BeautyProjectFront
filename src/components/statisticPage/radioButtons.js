@@ -26,7 +26,7 @@ export default function RadioButtons({ handleChange }) {
         />
         <Form.Check
           inline
-          label="Last Three Monthes"
+          label="Monthes"
           name="group1"
           type={"radio"}
           id={"inline-radio-3"}

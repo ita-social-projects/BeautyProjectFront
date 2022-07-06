@@ -2,9 +2,9 @@ import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 
 export default function BusinessTable({ data }) {
-	data.forEach((element, index) => {
-		element.id = index;
-	});
+  data.forEach((element, index) => {
+    element.id = index;
+  });
 
   const columns = [
     {
@@ -50,9 +50,9 @@ export default function BusinessTable({ data }) {
       keyField="id"
       data={data}
       columns={columns}
-			hover
-			condensed
-			striped
+      hover
+      condensed
+      striped
     />
   );
 }

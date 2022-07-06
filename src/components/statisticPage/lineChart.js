@@ -23,7 +23,7 @@ ChartJS.register(
 
 export default function LineChart({ chartLabels, chartData }) {
   const options = {
-    responsive: false,
+    responsive: true,
     maintainAspectRatio: false,
     scales: {
       y: {
@@ -38,11 +38,15 @@ export default function LineChart({ chartLabels, chartData }) {
       {
         label: "Number of Orders",
         data: chartData,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "rgb(141, 51, 172)",
+        backgroundColor: "rgba(141, 51, 172, 0.5)",
       },
     ],
   };
 
-  return <Line options={options} data={data} height={400} width={700} />;
+  return (
+    <div style={{ height: 400 }}>
+      <Line options={options} data={data} />
+    </div>
+  );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
+import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css";
 import ToolkitProvider, {
   Search,
@@ -61,12 +62,24 @@ export default function SpecialistsTable({ data }) {
   ];
 
   return (
-    <ToolkitProvider className="mb-5" keyField="id" data={data} columns={columns} search>
+    <ToolkitProvider
+      className="mb-5"
+      keyField="id"
+      data={data}
+      columns={columns}
+      search
+    >
       {(props) => (
         <div>
           <SearchBar {...props.searchProps} srText={null} />
           <br />
-          <BootstrapTable {...props.baseProps} hover condensed striped />
+          <BootstrapTable
+            {...props.baseProps}
+            hover
+            condensed
+            striped
+            bootstrap4
+          />
         </div>
       )}
     </ToolkitProvider>
