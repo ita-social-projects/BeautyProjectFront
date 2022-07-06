@@ -1,0 +1,17 @@
+.staticPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline:before {
+  content: " ";
+  display: inline-block;
+  width: 32px;
+}

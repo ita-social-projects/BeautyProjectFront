@@ -9,6 +9,7 @@ import {
 import {MainPage} from "./components/main_page/MainPage";
 import {LoginPage} from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
+import StatisticPage from "./components/statisticPage/statisticPage";
 
 class App extends React.Component {
     render() {
@@ -32,6 +33,7 @@ class App extends React.Component {
                         </Route>
                         <Route path="/register" element={<RegisterPage/>}>
                         </Route>
+                        <Route path="/statistic" element={<StatisticPage/>} />
                     </Routes>
                 </div>
             </Router>
