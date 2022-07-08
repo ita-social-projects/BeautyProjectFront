@@ -36,14 +36,14 @@ const LoginPage = () => {
         try {
             const response = await axios({
                 method: "post",
-                url: "http://3.65.253.196/auth/jwt/create/",
+                url: "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/auth/jwt/create/",
                 data: loginFormData,
                 headers: {"Content-Type": "application/json"},
             });
 
             const name = "jwt_session";
             const value = response.data["access"]; 
-            const days = 60;
+            const days = 10;
 
             var expires = "";
 
@@ -86,13 +86,13 @@ const LoginPage = () => {
         <Container>
             <div className="inner__wrapper">
                <div className="inner__form__wrapper">
-                   <div className="registration__header__wrapper">
-                       <h1 className="registration__header">Sign in</h1>
+                   <div className="login__header__wrapper">
+                       <h1 className="login__header">Sign in</h1>
                    </div>
                    <div className="user__image__wrapper">
                        <img src={user_image} alt="user image" className="user__image"/>
                    </div>
-                   <form onSubmit={handleSubmit} className="register__form">
+                   <form onSubmit={handleSubmit} className="login__form">
                        <div className="form__item">
                            <p className="form_error_message">Error message</p>
                            <input
