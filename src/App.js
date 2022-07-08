@@ -9,6 +9,7 @@ import {
 import {MainPage} from "./components/main_page/MainPage";
 import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
+import NotFound from "./components/error_pages/NotFound/NotFound";
 
 class App extends React.Component {
     render() {
@@ -31,6 +32,8 @@ class App extends React.Component {
                         <Route path="/login" element={<LoginPage/>}>
                         </Route>
                         <Route path="/register" element={<RegisterPage/>}>
+                        </Route>
+                        <Route path="*" element={<NotFound />}>
                         </Route>
                     </Routes>
                 </div>
