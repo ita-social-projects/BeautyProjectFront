@@ -11,6 +11,7 @@ import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
+import Navbar from "./components/navbar/Navbar";
 
 class App extends React.Component {
     render() {
@@ -18,6 +19,7 @@ class App extends React.Component {
             <Router>
                 <div>
                     <nav>
+                        <Navbar></Navbar>
                         <ul>
                             <li>
                                 <Link to="/login">Login</Link>
