@@ -32,8 +32,9 @@ const RegisterPage = () => {
         loginFormData.append("re_password", formValue.re_password)
         event.preventDefault()
 
+
         const keyArray = ["email", "first_name", "phone_number", "password", "re_password"]
-        for (const currentKey of keyArray){
+        for (const currentKey of keyArray) {
             let currentElement = document.querySelector(`[name='${currentKey}']`);
             let currentErrorMessage = currentElement.parentElement.querySelector("p");
             currentElement.classList.remove("validation_error");
@@ -52,8 +53,8 @@ const RegisterPage = () => {
 
         } catch (error) {
             const errors = error.response.data
-            for (const currentKey of Object.keys(errors)){
-                if (currentKey === "non_field_errors"){
+            for (const currentKey of Object.keys(errors)) {
+                if (currentKey === "non_field_errors") {
                     setError("password", errors[currentKey])
                     continue
                 }
@@ -80,91 +81,91 @@ const RegisterPage = () => {
     return (
         <Container>
             <div className="inner__wrapper">
-               <div className="inner__form__wrapper">
-                   <div className="registration__header__wrapper">
-                       <h1 className="registration__header">Sign up</h1>
-                   </div>
-                   <div className="user__image__wrapper">
-                       <img src={user_image} alt="user image" className="user__image"/>
-                   </div>
-                   <form onSubmit={handleSubmit} className="register__form">
-                       <div className="form__item">
-                           <p className="form_error_message">Error message</p>
-                           <input
-                               type="email"
-                               name="email"
-                               className="form__input"
-                               placeholder={"Email"}
-                               value={formValue.email}
-                               onChange={handleChange}
-                           />
-                       </div>
-                       <div className="form__item">
-                           <p className="form_error_message">Error message</p>
-                           <input
-                               type="text"
-                               name="first_name"
-                               className="form__input"
-                               placeholder={"First name"}
-                               value={formValue.first_name}
-                               onChange={handleChange}
-                           />
-                       </div>
-                       <div className="form__item">
-                           <p className="form_error_message">Error message</p>
-                           <input
-                               type="text"
-                               name="phone_number"
-                               className="form__input"
-                               placeholder={"Phone number"}
-                               value={formValue.phone_number}
-                               onChange={handleChange}
-                           />
-                       </div>
-                       <div className="form__item">
-                           <p className="form_error_message">Error message</p>
-                           <input
-                               type="password"
-                               name="password"
-                               className="form__input"
-                               placeholder={"Password"}
-                               value={formValue.password}
-                               onChange={handleChange}
-                           />
-                       </div>
-                       <div className="form__item">
-                           <p className="form_error_message">Error message</p>
-                           <input
-                               type="password"
-                               name="re_password"
-                               className="form__input"
-                               placeholder={"Repeat password"}
-                               value={formValue.re_password}
-                               onChange={handleChange}
-                           />
-                       </div>
-                       <div className="form__item">
-                           <button
-                               type="submit"
-                               className="form__input__button"
-                           >
-                               Submit
-                           </button>
-                       </div>
-                   </form>
-                   <div className="navigation__button__wrapper">
-                       <div className="navigation__button__text">
-                           Already signed up?
-                       </div>
-                       <div className="navigation__button">
-                           <Link to="/login">Sign in</Link>
-                       </div>
-                       <Routes>
-                           <Route path="/login" element={<LoginPage/>}>
-                           </Route>
-                       </Routes>
-                   </div>
-               </div>
+                <div className="inner__form__wrapper">
+                    <div className="registration__header__wrapper">
+                        <h1 className="registration__header">Sign up</h1>
+                    </div>
+                    <div className="user__image__wrapper">
+                        <img src={user_image} alt="user image" className="user__image"/>
+                    </div>
+                    <form onSubmit={handleSubmit} className="register__form">
+                        <div className="form__item">
+                            <p className="form_error_message">Error message</p>
+                            <input
+                                type="email"
+                                name="email"
+                                className="form__input"
+                                placeholder={"Email"}
+                                value={formValue.email}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form__item">
+                            <p className="form_error_message">Error message</p>
+                            <input
+                                type="text"
+                                name="first_name"
+                                className="form__input"
+                                placeholder={"First name"}
+                                value={formValue.first_name}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form__item">
+                            <p className="form_error_message">Error message</p>
+                            <input
+                                type="text"
+                                name="phone_number"
+                                className="form__input"
+                                placeholder={"Phone number"}
+                                value={formValue.phone_number}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form__item">
+                            <p className="form_error_message">Error message</p>
+                            <input
+                                type="password"
+                                name="password"
+                                className="form__input"
+                                placeholder={"Password"}
+                                value={formValue.password}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form__item">
+                            <p className="form_error_message">Error message</p>
+                            <input
+                                type="password"
+                                name="re_password"
+                                className="form__input"
+                                placeholder={"Repeat password"}
+                                value={formValue.re_password}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form__item">
+                            <button
+                                type="submit"
+                                className="form__input__button"
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                    <div className="navigation__button__wrapper">
+                        <div className="navigation__button__text">
+                            Already signed up?
+                        </div>
+                        <div className="navigation__button">
+                            <Link to="/login">Sign in</Link>
+                        </div>
+                        <Routes>
+                            <Route path="/login" element={<LoginPage/>}>
+                            </Route>
+                        </Routes>
+                    </div>
+                </div>
             </div>
         </Container>
     )
