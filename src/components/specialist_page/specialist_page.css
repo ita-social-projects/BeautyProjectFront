@@ -1,0 +1,19 @@
+.row{
+    padding: 20px 20px 20px 20px;
+}
+
+.specialist_info{
+    width: 30%;
+    border: 3px solid #8d33ac;
+    margin: 20px 20px 20px 20px;
+    visibility: hidden;
+}
+
+.specialist_img{
+    max-width: 70%;
+    height: auto;
+}
+
+.error_message{
+    visibility: hidden;
+}
