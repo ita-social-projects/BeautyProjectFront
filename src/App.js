@@ -7,9 +7,10 @@ import {
 } from "react-router-dom";
 
 import {MainPage} from "./components/main_page/MainPage";
-import {LoginPage} from "./components/login_page/login_page";
+import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
 import SpecialistPage from "./components/specialist_page/specialist_page.js";
+import NotFound from "./components/error_pages/NotFound/NotFound";
 
 class App extends React.Component {
     render() {
@@ -37,6 +38,8 @@ class App extends React.Component {
                         <Route path="/register" element={<RegisterPage/>}>
                         </Route>
                         <Route path="/specialist" element={<SpecialistPage/>}>
+                        </Route>
+                        <Route path="*" element={<NotFound />}>
                         </Route>
                     </Routes>
                 </div>

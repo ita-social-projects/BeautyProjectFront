@@ -19,6 +19,10 @@ const SpecialistPage = () => {
         "rating"
     ]
 
+    const url = "http://3.65.253.196/"
+    //const url = "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/"
+    const request_url = "api/v1/specialist/"
+
     const handleSubmit = async (event) => {
         const specialistFormData = new FormData();
         specialistFormData.append("id", formValue.id)
@@ -34,7 +38,7 @@ const SpecialistPage = () => {
             document.getElementsByClassName("error_message")[0].style.visibility = "hidden";
             const response = await axios({
                 method: "get",
-                url: "http://3.65.253.196/api/v1/specialist/" + formValue.id,
+                url: url + request_url + formValue.id,
                 headers: {"Content-Type": "application/json"},
             });
 
