@@ -55,6 +55,13 @@
     outline: none;
 }
 
+.add-review_form__input__button{
+    background: none;
+    border: 1px solid #8d33ac;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
 .error_message_shown{
     opacity: 100%;
 }
