@@ -104,10 +104,6 @@ const AddReviewModal = (props) => {
 
     return (
         <Container>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addReviewModal">
-                Add review
-            </button>
-
             <div className="modal fade" id="addReviewModal" tabIndex="-1" aria-labelledby="addReviewModalLabel"
                  aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
