@@ -188,6 +188,7 @@ const AddReviewModal = (props) => {
                                             type="text_body"
                                             name="text_body"
                                             className="add-review_form__input"
+                                            placeholder={"Comment"}
                                             value={formValue.text_body}
                                             onChange={handleChange}
                                         />
