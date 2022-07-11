@@ -1,6 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
-import jwt_decode from "jwt-decode";
 import {NavDropdown, Navbar, Nav, Container, Image} from "react-bootstrap"
 import user_image from "./assets/user.svg"
 import businesses_image from "./assets/hair-salon.png"
@@ -8,23 +6,8 @@ import order_image from "./assets/price.png"
 import support_image from "./assets/customer-service.png"
 import statistics_image from "./assets/statistics.png"
 import settings_image from "./assets/control.png"
+import {getLoginInfo, changeLink, axios_request, BASE_URL} from "../../utils/utils.js"
 import "./TNavbar.css";
-
-
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(";").shift();
-  return null;
-}
-
-
-const getLoginInfo = () => {
-  const token = getCookie("jwt_session");
-  const user_id = token ? jwt_decode(token).user_id : null;
-
-  return {token: token, user_id: user_id};
-};
 
 
 const TNavbar = () => {
@@ -32,15 +15,12 @@ const TNavbar = () => {
   const [userInfo, setUserInfo] = useState(false);
   const data = getLoginInfo();
 
+
   const getUserInfo = useCallback(
     async () => {
-      await axios({
+      await axios_request({
         method: "get",
-        url: "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/api/v1/user/" + data.user_id + "/",
-        headers: { 
-          "Content-Type": "application/json",
-          "Authorization": 'JWT ' + data.token
-        }
+        url: BASE_URL + "user/" + data.user_id + "/",
       }).then(
         (response) => setUserInfo(response.data)
       ).catch(
@@ -81,7 +61,7 @@ const TNavbar = () => {
                 title={
                     <div >
                         <Image className="user__image__logo" 
-                            src={userInfo.avatar} 
+                            src={changeLink(userInfo.avatar)} 
                             alt="user pic"
                         />
                     </div>
@@ -106,7 +86,8 @@ const TNavbar = () => {
           BeautyProject
         </Navbar.Brand>
 
-
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
       <NavDropdown 
                 title={
                     <div >
@@ -122,7 +103,7 @@ const TNavbar = () => {
                     <NavDropdown.Item a href="/login" className="custom_nav_link">Sign in</NavDropdown.Item>
                     <NavDropdown.Item a href="/register" className="custom_nav_link">Sign up</NavDropdown.Item>
             </NavDropdown>
-        
+            </Navbar.Collapse>
             </Container>
     </Navbar>
 
