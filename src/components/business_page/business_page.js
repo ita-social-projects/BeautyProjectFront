@@ -84,7 +84,7 @@ const ParticularBusiness = () => {
                                 </div>
                             </div>
                             <div className="business-page_logo_wrapper">
-                                <img src={changeLink(businessInfo.logo)} alt="logo"/>
+                                <img src={changeLink(businessInfo.logo != null ? businessInfo.logo : "")} alt="logo"/>
                             </div>
                         </div>
                         <div className="business-page-calendar_wrapper">
