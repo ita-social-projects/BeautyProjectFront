@@ -30,7 +30,13 @@ const ServiceByBusiness = () => {
             </tr>
         )
     })
-    return (
+    if (arr.length === 0){
+        return (
+            <h2>This business doesn't provide any service</h2>
+        )}
+
+    else {
+        return (
         <Table striped bordered hover>
             <thead>
             <tr>
@@ -44,6 +50,6 @@ const ServiceByBusiness = () => {
             {arr}
             </tbody>
         </Table>
-    )
+    )}
 }
 export default ServiceByBusiness
