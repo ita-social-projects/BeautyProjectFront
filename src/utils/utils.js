@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 
 const SITE_URL = process.env.REACT_APP_BASE_URL;
-const BASE_URL = process.env.REACT_APP_BASE_URL + "api/v1/";
+const BASE_URL = process.env.REACT_APP_BASE_URL + "/api/v1/";
 
 const changeLink = (link) => {
 	return link.replace("http://3.65.253.196:80", "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com");
