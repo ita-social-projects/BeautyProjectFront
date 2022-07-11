@@ -3,6 +3,8 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import {BASE_URL} from "../../utils/utils.js"
+
 
 import './services_by_business.css';
 
@@ -14,7 +16,7 @@ const ServiceByBusiness = () => {
 
     useEffect(() => {
 
-        axios.get(`https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/api/v1/business/${params.id}/services`)
+        axios.get(BASE_URL + `business/${params.id}/services`)
             .then(res => {
                 setDate(res.data.results)
             }).catch(err => console.log(err))
