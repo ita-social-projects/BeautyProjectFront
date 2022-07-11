@@ -57,6 +57,9 @@
 .business-page_calendar_item:hover{
     transform: scale(1.05);
 }
+.business-page_calendar_item_header h2{
+    padding-left: 12px;
+}
 .business-page_calendar_item_time{
     text-align: center;
 }

@@ -50,7 +50,7 @@ const ParticularBusiness = () => {
                 calendarArray.push(<BusinessPageCalendarItem
                     day={key}
                     time={"Day off"}
-                    bg={"#68646a"}
+                    bg={"#979497"}
                 />)
             } else {
                 calendarArray.push(<BusinessPageCalendarItem
