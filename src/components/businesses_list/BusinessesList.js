@@ -2,10 +2,18 @@ import React, {useEffect} from "react";
 import {Container} from "react-bootstrap";
 import axios from "axios";
 import {BASE_URL, changeLink} from "../../utils/utils";
+import {useNavigate} from "react-router-dom";
 
 import "./BusinessesList.css"
 
 const Block_businesses = (props) => {
+
+    const navigate = useNavigate();
+
+    const handlerNavigator = () => {
+        navigate("/business/" + props.id)
+    }
+
     return (
         <div className="business-list_main_component">
             <div className="business-list_all_text">
@@ -25,7 +33,7 @@ const Block_businesses = (props) => {
                     </p>
                 </div>
                 <div className="business-list_more">
-                    <p>
+                    <p onClick={handlerNavigator}>
                         More
                     </p>
                 </div>
@@ -69,7 +77,8 @@ const BusinessList = () => {
             result.push(<Block_businesses key={count} name={business.name}
             business_type={business.business_type}
             location={business.location}
-            logo={business.logo}/>)
+            logo={business.logo}
+            id={business.location.id}/>)
             count++
         }
         return result
