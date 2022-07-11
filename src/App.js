@@ -11,20 +11,22 @@ import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
+import TNavbar from "./components/navbar/TNavbar";
 
 class App extends React.Component {
     render() {
         return (
             <Router>
+            <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+                integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+                crossorigin="anonymous"
+                />
                 <div>
                     <nav>
+                    <TNavbar></TNavbar>
                         <ul>
-                            <li>
-                                <Link to="/login">Login</Link>
-                            </li>
-                            <li>
-                                <Link to="/register">Register</Link>
-                            </li>
                             <li>
                                 <Link to="/add_review">Add review</Link>
                             </li>

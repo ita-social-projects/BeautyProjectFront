@@ -1,0 +1,43 @@
+.nav-panel {
+    --bs-navbar-brand-margin-end: 5.5rem !important;
+    --bs-navbar-brand-font-size: 2rem !important;
+    --bs-body-font-family: 0 !important;
+    margin-bottom: 14px;
+    padding: 10px !important;
+    margin-bottom: 10px;
+}
+
+.custom_nav_link {
+    align-self: flex-end!important;  
+    text-align: end !important;
+}
+
+.user__image__logo {
+    width: 48px;
+    height: 48px;
+    margin: auto !important;
+    padding: auto !important;
+}
+
+.element__image__nav {
+    width: 40px;
+    height: 40px;
+    margin: 1px 12px 1px 12px;
+}
+
+.dropdown-menu {
+    --bs-dropdown-min-width: auto !important;
+    --bs-dropdown-padding-x: 6px !important;
+    --bs-dropdown-padding-y: 10px !important;
+    --bs-dropdown-link-hover-bg: rgba(92, 234, 236, 0.782) !important;
+    --bs-dropdown-spacer: 0.5rem !important;
+}
+
+.dropdown-toggle::after {
+    border: 0cm !important;
+    content: none !important;
+}
+
+.bs-tooltip-bottom {
+    padding: 20px 20px 20px 20px !important;
+}
