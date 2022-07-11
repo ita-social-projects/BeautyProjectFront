@@ -12,6 +12,7 @@ import RegisterPage from "./components/register_page/register_page";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
 import TNavbar from "./components/navbar/TNavbar";
+import ParticularBusiness from "./components/business_page/business_page";
 
 class App extends React.Component {
     render() {
@@ -26,11 +27,6 @@ class App extends React.Component {
                 <div>
                     <nav>
                     <TNavbar></TNavbar>
-                        <ul>
-                            <li>
-                                <Link to="/add_review">Add review</Link>
-                            </li>
-                        </ul>
                     </nav>
                     <Routes>
                         <Route path="/" element={<MainPage/>}>
@@ -40,6 +36,8 @@ class App extends React.Component {
                         <Route path="/register" element={<RegisterPage/>}>
                         </Route>
                         <Route path="/add_review" element={<AddReviewModal to_user="63"/>}>
+                        </Route>
+                        <Route path="/business/:id" element={<ParticularBusiness/>}>
                         </Route>
                         <Route path="*" element={<NotFound />}>
                         </Route>
