@@ -9,7 +9,7 @@ import SpecialistsTable from "./specialistsTable";
 
 export default function StatisticPage() {
   const { businessId } = useParams();
-  const url = `http://localhost:8000/api/v1/statistic/${businessId}/`;
+  const url = `https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/api/v1/statistic/${businessId}/`;
 
   const [timeInterval, setTimeInterval] = useState("lastSevenDays");
 
