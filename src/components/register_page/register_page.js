@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
+import {SITE_URL, axios_request, getLoginInfo} from "../../utils/utils";
 import "./register_page.css";
 import user_image from "./assets/img/user.svg"
 
@@ -10,6 +11,8 @@ import {
     Route,
     Link
 } from "react-router-dom";
+
+import {useNavigate} from "react-router-dom"
 
 
 import LoginPage from "../login_page/login_page";
@@ -22,6 +25,8 @@ const RegisterPage = () => {
         password: "",
         re_password: ""
     });
+
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         const loginFormData = new FormData();
@@ -44,12 +49,12 @@ const RegisterPage = () => {
         try {
             const response = await axios({
                 method: "post",
-                url: "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/auth/users/",
+                url: SITE_URL + "/auth/users/",
                 data: loginFormData,
                 headers: {"Content-Type": "application/json"},
             });
 
-            //TODO: Redirect after successful registration
+            navigate("/login")
 
         } catch (error) {
             const errors = error.response.data
