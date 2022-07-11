@@ -1,0 +1,5 @@
+thead, tr, table{
+    border: 3px solid purple !important;
+    margin: 0 auto !important;
+    width: 95% !important;
+}
