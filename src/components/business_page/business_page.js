@@ -42,6 +42,9 @@ const ParticularBusiness = () => {
     );
 
     const getDaysArray = () => {
+        if (Object.keys(businessInfo.working_time).length === 0){
+            return (<h2>No working time available</h2>)
+        }
         let daysArray = businessInfo.working_time
         let calendarArray = []
         const keyArray = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
