@@ -9,10 +9,9 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-    Link
+    Link,
+    useNavigate
 } from "react-router-dom";
-
-import {useNavigate} from "react-router-dom"
 
 
 import LoginPage from "../login_page/login_page";
