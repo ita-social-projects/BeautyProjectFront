@@ -53,6 +53,7 @@ const SpecialistPage = () => {
 
         } catch (error) {
             document.getElementsByClassName("specialist_info")[0].style.visibility = "hidden";
+            document.getElementsByClassName('specialist_img')[0].removeAttribute('src');
             document.getElementsByClassName("error_message")[0].style.visibility = "visible";
             console.log("Error")
         }
@@ -66,7 +67,7 @@ const SpecialistPage = () => {
     }
     return (
         <Container>
-            <div className="inner__wrapper">
+            <Container>
                 <div className="inner__form__wrapper">
                     <form onSubmit={handleSubmit} className="specialist__info__form">
                         <div className="form__item">
@@ -105,7 +106,7 @@ const SpecialistPage = () => {
                     <Row><Col className="specialist_bio"></Col></Row>
                     <Row><Col className="specialist_rating"></Col></Row>
                 </Container>
-            </div>
+            </Container>
         </Container>
     )
 }
