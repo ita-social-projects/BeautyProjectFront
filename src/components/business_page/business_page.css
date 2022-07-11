@@ -41,8 +41,12 @@
 .business-page_calendar_main{
     display: flex;
     justify-content: space-around;
-
+    flex-wrap: wrap;
 }
+.business-page_calendar_main > div{
+    margin: 6px;
+}
+
 .business-page_calendar_item{
     display: flex;
     flex-direction: column;
