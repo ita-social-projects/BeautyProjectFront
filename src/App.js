@@ -11,6 +11,7 @@ import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
+import ServiceByBusiness from "./components/services_by_business/services_by_business";
 
 class App extends React.Component {
     render() {
@@ -40,6 +41,8 @@ class App extends React.Component {
                         <Route path="/add_review" element={<AddReviewModal to_user="63"/>}>
                         </Route>
                         <Route path="*" element={<NotFound />}>
+                        </Route>
+                        <Route path="/business/:id/services/" element={<ServiceByBusiness/>}>
                         </Route>
                     </Routes>
                 </div>
