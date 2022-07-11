@@ -14,6 +14,7 @@ import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
 import TNavbar from "./components/navbar/TNavbar";
 import ParticularBusiness from "./components/business_page/business_page";
+import BusinessList from "./components/businesses_list/BusinessesList";
 
 class App extends React.Component {
     render() {
@@ -35,6 +36,9 @@ class App extends React.Component {
                             <li>
                                 <Link to="/specialist">Specialist</Link>
                             </li>
+                            <li>
+                                <Link to="/allbusinesses">All Businesses</Link>
+                            </li>
                         </ul>
                     </nav>
                     <Routes>
@@ -51,6 +55,8 @@ class App extends React.Component {
                         <Route path="/business/:id" element={<ParticularBusiness/>}>
                         </Route>
                         <Route path="*" element={<NotFound />}>
+                        </Route>
+                        <Route path="/allbusinesses" element={<BusinessList/>}>
                         </Route>
                     </Routes>
                 </div>

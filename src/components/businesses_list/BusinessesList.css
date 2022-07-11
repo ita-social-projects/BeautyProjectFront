@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.business-list_whole_page{
+    background-color: white;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin-left: 35px;
+}
+
+.business-list_header{
+    width: 87%;
+    margin-left: 60px;
+    /*margin-right: -100px;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.business-list_block_title{
+    font-size: 64px;
+}
+
+.business-list_list_of_all{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.business-list_main_component{
+    box-sizing: border-box;
+    width: 600px;
+    height: 225px;
+    background: #d9d9d9;
+    border: 3px solid black;
+    border-radius: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 55px;
+}
+
+.business-list_logo{
+    width: 115px;
+    height: 115px;
+    margin-right: 30px;
+}
+
+.business-list_logo img{
+    width: 115px;
+    height: 115px;
+}
+
+.business-list_all_text{
+    width: 350px;
+    height: 116px;
+    margin-left: 30px;
+}
+
+.business-list_business_name{
+    margin-bottom: 5px;
+    margin-top: -30px;
+    width: 350px;
+    height: 36px;
+    font-style: normal;
+    /*font-family: "Arial l";*/
+    font-weight: normal;
+    font-size: 30px;
+
+    color: #000000;
+}
+
+.business-list_business_type{
+    width: 350px;
+    height: 36px;
+    font-style: normal;
+    /*font-family: "Arial l";*/
+    font-weight: normal;
+    font-size: 24px;
+
+    color: #000000;
+}
+
+.business-list_business_address{
+    width: 350px;
+    height: 36px;
+    font-style: normal;
+    /*font-family: "Arial l";*/
+    font-weight: normal;
+    font-size: 20px;
+
+    color: #000000;
+}
+
+.business-list_more{
+    margin-top: 25px;
+    width: 350px;
+    height: 20px;
+    font-style: normal;
+    /*font-family: "Arial l";*/
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 0.15em;
+
+    color: #000000;
+}
