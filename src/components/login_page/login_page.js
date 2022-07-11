@@ -9,7 +9,8 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-    Link
+    Link,
+    useNavigate
 } from "react-router-dom";
 
 
@@ -18,6 +19,8 @@ const LoginPage = () => {
         email: "",
         password: ""
     });
+
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         const loginFormData = new FormData();
@@ -53,6 +56,8 @@ const LoginPage = () => {
                 expires = "; expires=" + date.toUTCString();
             }
             document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+            navigate("/")
+            window.location.reload()
         } catch (error) {
             const errors = error.response.data
             for (const currentKey of Object.keys(errors)){

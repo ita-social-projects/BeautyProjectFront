@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.business-page_page_wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.business-page-info_wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.business-page_left_wrapper{
+    width: 100%;
+    height: 100%;
+}
+.business-page_header_wrapper{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dcdee1;
+    border-top: 1px solid #dcdee1;
+}
+
+.business-page-calendar_wrapper{
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.business-page_calendar_main{
+    display: flex;
+    justify-content: space-around;
+
+}
+.business-page_calendar_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 160px;
+    height: 160px;
+}
+.business-page_calendar_item_time{
+    text-align: center;
+}
+.business-page_calendar_item_time h5{
+    font-size: 1.5rem;
+}
+.business-page_logo_wrapper{
+    width: 150px;
+    height: 150px;
+    user-select: none;
+    pointer-events: none;
+}
+.business-page_logo_wrapper img{
+    width: 150px;
+    height: 160px;
+}
+
+.business-page_location_wrapper{
+    width: 360px;
+    height: 360px;
+    background: #282c34;
+}

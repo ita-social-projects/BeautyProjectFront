@@ -13,6 +13,7 @@ import SpecialistPage from "./components/specialist_page/specialist_page.js";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
 import TNavbar from "./components/navbar/TNavbar";
+import ParticularBusiness from "./components/business_page/business_page";
 
 class App extends React.Component {
     render() {
@@ -46,6 +47,8 @@ class App extends React.Component {
                         <Route path="/specialist" element={<SpecialistPage/>}>
                         </Route>
                         <Route path="/add_review" element={<AddReviewModal to_user="63"/>}>
+                        </Route>
+                        <Route path="/business/:id" element={<ParticularBusiness/>}>
                         </Route>
                         <Route path="*" element={<NotFound />}>
                         </Route>
