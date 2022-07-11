@@ -5,7 +5,8 @@ import Container from 'react-bootstrap/Container';
 import NotFound from "../error_pages/NotFound/NotFound";
 import {useParams} from "react-router-dom";
 import Cookies from "js-cookie";
-import business_page from "./business_page.css";
+import {BASE_URL, axios_request, changeLink} from "../../utils/utils";
+import "./business_page.css";
 
 
 const BusinessPageCalendarItem = (props) => {
@@ -29,12 +30,10 @@ const ParticularBusiness = () => {
 
     const getBusinessInfo = useCallback(
         async () => {
-            await axios({
+            await axios_request({
                 method: "get",
-                url: "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/api/v1/business/" + id,
-                headers: {"Authorization": "JWT " + Cookies.get("jwt_session")},
+                url: BASE_URL + "business/" + id,
             }).then(response => {
-                console.log(response)
                 setBusinessInfo(response.data)
             }).catch(err => {
                 console.log(err)
@@ -71,8 +70,6 @@ const ParticularBusiness = () => {
     if (isNaN(id) || !businessInfo) {
         return <NotFound/>
     } else {
-        console.log(businessInfo.working_time)
-        console.log(typeof businessInfo.working_time)
         return (
             <Container fluid={true} className="">
                 <div className="business-page_page_wrapper">
@@ -87,7 +84,7 @@ const ParticularBusiness = () => {
                                 </div>
                             </div>
                             <div className="business-page_logo_wrapper">
-                                <img src={businessInfo.logo} alt="logo"/>
+                                <img src={changeLink(businessInfo.logo)} alt="logo"/>
                             </div>
                         </div>
                         <div className="business-page-calendar_wrapper">
@@ -96,16 +93,9 @@ const ParticularBusiness = () => {
                             </div>
                         </div>
                         <div className="business-page_main_map_wrapper">
-                            {/*<iframe width="100%" height="600" title={"Map"}*/}
-                            {/*        src={"https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=53.2734,%20-7.77832031+(BusinessName)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;&output=embed"}>*/}
-                            {/*    <a href="https://www.gps.ie/farm-gps/">agricultural gps</a></iframe>*/}
-                            <div className="mapouter">
-                                <div className="gmap_canvas">
-                                    <iframe width="100%" height="500" id="gmap_canvas"
-                                            src={`https://maps.google.com/maps?q=${businessInfo.location.latitude},%20${businessInfo.location.longitude}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
-                                </div>
-                            </div>
+                            <iframe width="100%" height="500" title="BusinessMap"
+                                    src={`https://maps.google.com/maps?q=${businessInfo.location.latitude},%20${businessInfo.location.longitude}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                            ></iframe>
                         </div>
                     </div>
                 </div>
