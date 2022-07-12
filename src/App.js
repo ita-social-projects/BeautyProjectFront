@@ -13,6 +13,7 @@ import SpecialistPage from "./components/specialist_page/specialist_page.js";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
 import TNavbar from "./components/navbar/TNavbar";
+import ServiceByBusiness from "./components/services_by_business/services_by_business";
 import ParticularBusiness from "./components/business_page/business_page";
 import BusinessList from "./components/businesses_list/BusinessesList";
 
@@ -55,6 +56,8 @@ class App extends React.Component {
                         <Route path="/business/:id" element={<ParticularBusiness/>}>
                         </Route>
                         <Route path="*" element={<NotFound />}>
+                        </Route>
+                        <Route path="/business/:id/services/" element={<ServiceByBusiness/>}>
                         </Route>
                         <Route path="/allbusinesses" element={<BusinessList/>}>
                         </Route>
