@@ -60,13 +60,18 @@ const LoginPage = () => {
             window.location.reload()
         } catch (error) {
             const errors = error.response.data
-            for (const currentKey of Object.keys(errors)){
-                if (currentKey === "detail") {
-                    setError("email", errors["detail"])
-                    continue
-                }
-                if (currentKey !== "status_code") {
-                    setError(currentKey, errors[currentKey])
+            if (error.response.status === 401){
+                setError("email", "No active account with such credentials")
+            }
+            else{
+                for (const currentKey of Object.keys(errors)){
+                    if (currentKey === "detail") {
+                        setError("email", errors["detail"])
+                        continue
+                    }
+                    if (currentKey !== "status_code") {
+                        setError(currentKey, errors[currentKey])
+                    }
                 }
             }
         }

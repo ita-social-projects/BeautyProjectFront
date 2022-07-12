@@ -15,6 +15,7 @@ import NotFound from "./components/error_pages/NotFound/NotFound";
 import TNavbar from "./components/navbar/TNavbar";
 import ServiceByBusiness from "./components/services_by_business/services_by_business";
 import ParticularBusiness from "./components/business_page/business_page";
+import BusinessList from "./components/businesses_list/BusinessesList";
 
 class App extends React.Component {
     render() {
@@ -36,6 +37,9 @@ class App extends React.Component {
                             <li>
                                 <Link to="/specialist">Specialist</Link>
                             </li>
+                            <li>
+                                <Link to="/allbusinesses">All Businesses</Link>
+                            </li>
                         </ul>
                     </nav>
                     <Routes>
@@ -54,6 +58,8 @@ class App extends React.Component {
                         <Route path="*" element={<NotFound />}>
                         </Route>
                         <Route path="/business/:id/services/" element={<ServiceByBusiness/>}>
+                        </Route>
+                        <Route path="/allbusinesses" element={<BusinessList/>}>
                         </Route>
                     </Routes>
                 </div>
