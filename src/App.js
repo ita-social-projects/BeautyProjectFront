@@ -18,7 +18,8 @@ import ParticularBusiness from "./components/business_page/business_page";
 import BusinessList from "./components/businesses_list/BusinessesList";
 import AddBusiness from "./components/add_business/add_business";
 
-import "./App.css";
+import "./App.css"
+import EditBusiness from "./components/edit_business/edit_business.js";
 
 class App extends React.Component {
     render() {
@@ -51,6 +52,8 @@ class App extends React.Component {
                         <Route path="/business/:id" element={<ParticularBusiness/>}>
                         </Route>
                         <Route path="/add_business" element={<AddBusiness/>}>
+                        </Route>
+                        <Route path="/edit_business/:id" element={<EditBusiness/>}>
                         </Route>
                         <Route path="*" element={<NotFound />}>
                         </Route>

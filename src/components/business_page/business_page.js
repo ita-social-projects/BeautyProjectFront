@@ -3,10 +3,11 @@ import React, {useCallback, useEffect, useState} from "react";
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import NotFound from "../error_pages/NotFound/NotFound";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Cookies from "js-cookie";
-import {BASE_URL, axios_request, changeLink} from "../../utils/utils";
+import {BASE_URL, axios_request, changeLink, getToken, getLoginInfo} from "../../utils/utils";
 import "./business_page.css";
+import jwt_decode from "jwt-decode";
 
 
 const BusinessPageCalendarItem = (props) => {
@@ -25,6 +26,7 @@ const BusinessPageCalendarItem = (props) => {
 
 const ParticularBusiness = () => {
     const [businessInfo, setBusinessInfo] = useState(false);
+    const [userInfo, setUserInfo] = useState(false)
 
     const {id} = useParams()
 
@@ -66,9 +68,43 @@ const ParticularBusiness = () => {
         return calendarArray
     }
 
+    const getUserInfo = useCallback(
+        async () => {
+            await axios_request({
+                method: "get",
+                url: BASE_URL + "user/" + getLoginInfo().user_id,
+            }).then(response => {
+                setUserInfo(response.data)
+            }).catch(err => {
+                console.log(err)
+            })
+        }, []
+    );
+
+    const navigate = useNavigate()
+
+    const showEditButton = () => {
+        if (Object.keys(businessInfo).includes("owner")){
+            if (businessInfo.owner === userInfo.first_name){
+                return (
+                    <div className="business-page_edit_button_block">
+                        <button className="business-page_edit_button"
+                                onClick={event => navigate("/edit_business/" + id)}
+                        >
+                            Edit
+                        </button>
+                    </div>
+                )
+            }
+        }
+        return null
+
+    }
+
     useEffect(() => {
         getBusinessInfo();
-    }, [getBusinessInfo])
+        getUserInfo()
+    }, [getBusinessInfo, getUserInfo])
 
     if (isNaN(id) || !businessInfo) {
         return <NotFound/>
@@ -85,6 +121,9 @@ const ParticularBusiness = () => {
                                 <div className="business-page_description">
                                     <h5>{businessInfo.description}</h5>
                                 </div>
+                                {
+                                    showEditButton()
+                                }
                             </div>
                             <div className="business-page_logo_wrapper">
                                 <img src={changeLink(businessInfo.logo != null ? businessInfo.logo : "")} alt="logo"/>
