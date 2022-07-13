@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import {NavDropdown, Navbar, Nav, Container, Image} from "react-bootstrap"
+import {NavDropdown, Navbar, Nav, Container, Image, InputGroup, Form, Button} from "react-bootstrap"
 import user_image from "./assets/user.svg"
 import businesses_image from "./assets/hair-salon.png"
 import order_image from "./assets/price.png"
 import support_image from "./assets/customer-service.png"
 import statistics_image from "./assets/statistics.png"
-import settings_image from "./assets/control.png"
 import {getLoginInfo, changeLink, axios_request, BASE_URL} from "../../utils/utils.js"
+import b_image from "./assets/b.png"
 import "./TNavbar.css";
 
 
@@ -38,25 +38,16 @@ const TNavbar = () => {
 
 
   if (userInfo) { return (
-    <Navbar expand="lg" sticky="top" collapseOnSelect bg="light" className="nav-panel">
-      <Container>
+    <Navbar expand="lg" sticky="top" collapseOnSelect className="nav-panel">
+      <Container fluid>
         <Navbar.Brand href="/">
-          BeautyProject
+          <Image src={b_image} className="brand_icon"></Image>
         </Navbar.Brand>
       
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav variant="tabs" className="me-auto">
 
-        <Nav.Link href="/"> <Image title="My Businesses" className="element__image__nav" src={businesses_image} alt="businesses"/> </Nav.Link>
-        <Nav.Link href="/"> <Image title="My Orders" className="element__image__nav" src={order_image} alt="orders"/> </Nav.Link>
-        <Nav.Link href="/"> <Image title="Business Analytics" className="element__image__nav" src={statistics_image} alt="statistics"/> </Nav.Link>
-        <Nav.Link href="/"> <Image title="Settings" className="element__image__nav" src={settings_image} alt="settings"/> </Nav.Link>
-        <Nav.Link href="/"> <Image title="Site Support" className="element__image__nav" src={support_image} alt="support"/> </Nav.Link>
-
-      </Nav>
-
-      <Nav className="ms-auto">
       <NavDropdown  
                 title={
                     <div >
@@ -71,8 +62,25 @@ const TNavbar = () => {
                     <NavDropdown.Divider />
                     <NavDropdown.Item a href="#" className="ms-auto custom_nav_link">My Profile</NavDropdown.Item>
                     <NavDropdown.Item a href="#" className="ms-auto custom_nav_link">Sign out</NavDropdown.Item>
-            </NavDropdown>
-    </Nav>
+        </NavDropdown>
+
+        <Nav.Link href="/"> <Image title="My Businesses" className="element__image__nav" src={businesses_image} alt="businesses"/> </Nav.Link>
+        <Nav.Link href="/"> <Image title="My Orders" className="element__image__nav" src={order_image} alt="orders"/> </Nav.Link>
+        <Nav.Link href="/"> <Image title="Business Analytics" className="element__image__nav" src={statistics_image} alt="statistics"/> </Nav.Link>
+        <Nav.Link href="/"> <Image title="Site Support" className="element__image__nav" src={support_image} alt="support"/> </Nav.Link>
+        
+      </Nav>
+
+      <Container className="me-auto">
+      <InputGroup>
+      
+        <Form.Control
+          type="text"
+          placeholder="Search for businesses..."
+        />
+        <Button variant="outline-primary">Search</Button>{' '}
+      </InputGroup>
+    </Container>
     </Navbar.Collapse>
         
             </Container>
@@ -81,13 +89,14 @@ const TNavbar = () => {
   } else {
     return(
     <Navbar collapseOnSelect expand="sm" bg="light" className="nav-panel">
-      <Container>
+      <Container fluid>
         <Navbar.Brand href="/">
-          BeautyProject
+          <Image src={b_image} className="brand_icon"></Image>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
+
       <NavDropdown 
                 title={
                     <div >
@@ -103,6 +112,16 @@ const TNavbar = () => {
                     <NavDropdown.Item a href="/login" className="custom_nav_link">Sign in</NavDropdown.Item>
                     <NavDropdown.Item a href="/register" className="custom_nav_link">Sign up</NavDropdown.Item>
             </NavDropdown>
+
+      <InputGroup>
+      
+      <Form.Control
+        type="text"
+        placeholder="Search for businesses..."
+      />
+      <Button variant="outline-primary">Search</Button>{' '}
+    </InputGroup>
+     
             </Navbar.Collapse>
             </Container>
     </Navbar>

@@ -1,10 +1,14 @@
 .nav-panel {
-    --bs-navbar-brand-margin-end: 5.5rem !important;
-    --bs-navbar-brand-font-size: 2rem !important;
-    --bs-body-font-family: 0 !important;
     margin-bottom: 14px;
     padding: 10px !important;
     margin-bottom: 10px;
+    background-color: #F8F9FA;
+}
+
+.carousel-caption {
+    color: white !important;
+    size: 48px;
+    padding-bottom: 5rem !important;
 }
 
 .custom_nav_link {
@@ -12,17 +16,25 @@
     text-align: end !important;
 }
 
-.user__image__logo {
+.search_icon {
+    width: 24px;
+    height: 24px;
+}
+
+.brand_icon {
     width: 48px;
     height: 48px;
-    margin: auto !important;
-    padding: auto !important;
+}
+
+.user__image__logo {
+    width: 38px;
+    height: 38px;
 }
 
 .element__image__nav {
-    width: 40px;
-    height: 40px;
-    margin: 1px 12px 1px 12px;
+    width: 32px;
+    height: 32px;
+    margin: 1px 4px 1px 4px;
 }
 
 .dropdown-menu {
@@ -40,4 +52,9 @@
 
 .bs-tooltip-bottom {
     padding: 20px 20px 20px 20px !important;
+}
+
+.input-group {
+    margin-left: 20px;
+    margin-right: 20px;
 }
