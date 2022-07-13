@@ -3,7 +3,7 @@ import React, {useCallback, useEffect, useState} from "react";
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import NotFound from "../error_pages/NotFound/NotFound";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Cookies from "js-cookie";
 import {BASE_URL, axios_request, changeLink, getToken, getLoginInfo} from "../../utils/utils";
 import "./business_page.css";
@@ -81,12 +81,16 @@ const ParticularBusiness = () => {
         }, []
     );
 
+    const navigate = useNavigate()
+
     const showEditButton = () => {
         if (Object.keys(businessInfo).includes("owner")){
             if (businessInfo.owner === userInfo.first_name){
                 return (
                     <div className="business-page_edit_button_block">
-                        <button className="business-page_edit_button">
+                        <button className="business-page_edit_button"
+                                onClick={event => navigate("/edit_business/" + id)}
+                        >
                             Edit
                         </button>
                     </div>
