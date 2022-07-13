@@ -35,6 +35,7 @@ const TNavbar = () => {
   const logOut = () => {
       Cookies.remove("jwt_session")
       navigate("/login")
+      window.location.reload()
   }
 
   useEffect(() => {
