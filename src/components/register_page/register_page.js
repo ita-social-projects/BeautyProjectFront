@@ -84,84 +84,84 @@ const RegisterPage = () => {
 
     return (
         <Container>
-            <div className="inner__wrapper">
-                <div className="inner__form__wrapper">
-                    <div className="registration__header__wrapper">
-                        <h1 className="registration__header">Sign up</h1>
+            <div className="register_page_inner__wrapper">
+                <div className="register_page_inner__form__wrapper">
+                    <div className="register_page_registration__header__wrapper">
+                        <h1 className="register_page_registration__header">Sign up</h1>
                     </div>
-                    <div className="user__image__wrapper">
-                        <img src={user_image} alt="user image" className="user__image"/>
+                    <div className="register_page_user__image__wrapper">
+                        <img src={user_image} alt="user image" className="register_page_user__image"/>
                     </div>
-                    <form onSubmit={handleSubmit} className="register__form">
-                        <div className="form__item">
-                            <p className="form_error_message">Error message</p>
+                    <form onSubmit={handleSubmit} className="register_page_register__form">
+                        <div className="register_page_form__item">
+                            <p className="register_page_form_error_message">Error message</p>
                             <input
                                 type="email"
                                 name="email"
-                                className="form__input"
+                                className="register_page_form__input"
                                 placeholder={"Email"}
                                 value={formValue.email}
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="form__item">
-                            <p className="form_error_message">Error message</p>
+                        <div className="register_page_form__item">
+                            <p className="register_page_form_error_message">Error message</p>
                             <input
                                 type="text"
                                 name="first_name"
-                                className="form__input"
+                                className="register_page_form__input"
                                 placeholder={"First name"}
                                 value={formValue.first_name}
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="form__item">
-                            <p className="form_error_message">Error message</p>
+                        <div className="register_page_form__item">
+                            <p className="register_page_form_error_message">Error message</p>
                             <input
                                 type="text"
                                 name="phone_number"
-                                className="form__input"
+                                className="register_page_form__input"
                                 placeholder={"Phone number"}
                                 value={formValue.phone_number}
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="form__item">
-                            <p className="form_error_message">Error message</p>
+                        <div className="register_page_form__item">
+                            <p className="register_page_form_error_message">Error message</p>
                             <input
                                 type="password"
                                 name="password"
-                                className="form__input"
+                                className="register_page_form__input"
                                 placeholder={"Password"}
                                 value={formValue.password}
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="form__item">
-                            <p className="form_error_message">Error message</p>
+                        <div className="register_page_form__item">
+                            <p className="register_page_form_error_message">Error message</p>
                             <input
                                 type="password"
                                 name="re_password"
-                                className="form__input"
+                                className="register_page_form__input"
                                 placeholder={"Repeat password"}
                                 value={formValue.re_password}
                                 onChange={handleChange}
                             />
                         </div>
-                        <div className="form__item">
+                        <div className="register_page_form__item">
                             <button
                                 type="submit"
-                                className="form__input__button"
+                                className="register_page_form__input__button"
                             >
                                 Submit
                             </button>
                         </div>
                     </form>
-                    <div className="navigation__button__wrapper">
-                        <div className="navigation__button__text">
-                            Already signed up?
+                    <div className="register_page_navigation__button__wrapper">
+                        <div className="register_page_navigation__button__text">
+                            Already have an account?
                         </div>
-                        <div className="navigation__button">
+                        <div className="register_page_navigation__button">
                             <Link to="/login">Sign in</Link>
                         </div>
                         <Routes>
