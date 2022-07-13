@@ -9,6 +9,7 @@ import {getLoginInfo, changeLink, axios_request, BASE_URL} from "../../utils/uti
 import b_image from "./assets/b.png"
 import "./TNavbar.css";
 import Cookies from "js-cookie";
+import {useNavigate} from "react-router-dom";
 
 
 const TNavbar = () => {
@@ -16,6 +17,7 @@ const TNavbar = () => {
   const [userInfo, setUserInfo] = useState(false);
   const data = getLoginInfo();
 
+  const navigate = useNavigate()
 
   const getUserInfo = useCallback(
     async () => {
@@ -32,7 +34,7 @@ const TNavbar = () => {
 
   const logOut = () => {
       Cookies.remove("jwt_session")
-      window.location.reload()
+      navigate("/login")
   }
 
   useEffect(() => {
