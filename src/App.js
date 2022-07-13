@@ -6,7 +6,7 @@ import {
     Link
 } from "react-router-dom";
 
-import {MainPage} from "./components/main_page/MainPage";
+import MainPage from "./components/main_page/MainPage";
 import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
 import SpecialistPage from "./components/specialist_page/specialist_page.js";
@@ -17,10 +17,15 @@ import ServiceByBusiness from "./components/services_by_business/services_by_bus
 import ParticularBusiness from "./components/business_page/business_page";
 import BusinessList from "./components/businesses_list/BusinessesList";
 
+import "./App.css";
+
 class App extends React.Component {
     render() {
         return (
             <Router>
+            <script
+                src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+                crossorigin></script>
             <link
                 rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -30,17 +35,6 @@ class App extends React.Component {
                 <div>
                     <nav>
                     <TNavbar></TNavbar>
-                        <ul>
-                            <li>
-                                <Link to="/add_review">Add review</Link>
-                            </li>
-                            <li>
-                                <Link to="/specialist">Specialist</Link>
-                            </li>
-                            <li>
-                                <Link to="/allbusinesses">All Businesses</Link>
-                            </li>
-                        </ul>
                     </nav>
                     <Routes>
                         <Route path="/" element={<MainPage/>}>
@@ -62,6 +56,17 @@ class App extends React.Component {
                         <Route path="/allbusinesses" element={<BusinessList/>}>
                         </Route>
                     </Routes>
+                    <ul>
+                        <li>
+                            <Link to="/add_review">Add review</Link>
+                        </li>
+                        <li>
+                            <Link to="/specialist">Specialist</Link>
+                        </li>
+                        <li>
+                            <Link to="/allbusinesses">All Businesses</Link>
+                        </li>
+                    </ul>
                 </div>
             </Router>
         )
