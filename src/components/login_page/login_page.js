@@ -94,51 +94,51 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <div className="inner__wrapper">
-               <div className="inner__form__wrapper">
-                   <div className="login__header__wrapper">
-                       <h1 className="login__header">Sign in</h1>
+            <div className="login-page_inner__wrapper">
+               <div className="login-page_inner__form__wrapper">
+                   <div className="login-page_login__header__wrapper">
+                       <h1 className="login-page_login__header">Sign in</h1>
                    </div>
-                   <div className="user__image__wrapper">
-                       <img src={user_image} alt="user image" className="user__image"/>
+                   <div className="login-page_user__image__wrapper">
+                       <img src={user_image} alt="user image" className="login-page_user__image"/>
                    </div>
-                   <form onSubmit={handleSubmit} className="login__form">
-                       <div className="form__item">
-                           <p className="form_error_message">Error message</p>
+                   <form onSubmit={handleSubmit} className="login-page_login__form">
+                       <div className="login-page_form__item">
+                           <p className="login-page_form_error_message">Error message</p>
                            <input
                                type="email"
                                name="email"
-                               className="form__input"
+                               className="login-page_form__input"
                                placeholder={"Email"}
                                value={formValue.email}
                                onChange={handleChange}
                            />
                        </div>
-                       <div className="form__item">
-                           <p className="form_error_message">Error message</p>
+                       <div className="login-page_form__item">
+                           <p className="login-page_form_error_message">Error message</p>
                            <input
                                type="password"
                                name="password"
-                               className="form__input"
+                               className="login-page_form__input"
                                placeholder={"Password"}
                                value={formValue.password}
                                onChange={handleChange}
                            />
                        </div>
-                       <div className="form__item">
+                       <div className="login-page_form__item">
                            <button
                                type="submit"
-                               className="form__input__button"
+                               className="login-page_form__input__button"
                            >
                                Submit
                            </button>
                        </div>
                    </form>
-                   <div className="navigation__button__wrapper">
-                       <div className="navigation__button__text">
-                           Don`t have an account? Create it
+                   <div className="login-page_navigation__button__wrapper">
+                       <div className="login-page_navigation__button__text">
+                           Don`t have an account?
                        </div>
-                       <div className="navigation__button">
+                       <div className="login-page_navigation__button">
                            <Link to="/register">Sign up</Link>
                        </div>
                        <Routes>
