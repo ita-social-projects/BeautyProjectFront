@@ -186,6 +186,7 @@ const AddBusiness = () => {
                                     <label htmlFor="upload_logo">Choose file <img src={right_arrow} alt="logo"/></label>
                                     <input
                                         type="file"
+                                        accept=".png, .jpg"
                                         name="input_logo"
                                         id="upload_logo"
                                         placeholder={"Business name"}
