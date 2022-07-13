@@ -27,6 +27,53 @@ const Block_info = (props) => {
         navigate("/my_businesses/" + props.key)
     }
 
+    const DeleteAnAccount = (props) => {
+        axios_request({
+            method: "delete",
+            url: BASE_URL + `user/${getLoginInfo()["user_id"]}` + "/"
+        })
+            .then((response) => {
+                Cookies.remove("jwt_session")
+                handlerNavigatorMainPage()
+                window.location.reload()
+            })
+            .catch((error) => {
+                if (error.response) {
+                    console.log(error.response);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                }
+            })
+    }
+
+    const handlerNavigatorDeleteAccount = () => {
+        return(
+            <div className="my-profile_modal_window">
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete my account
+                </button>
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Delete an account</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                Are you sure that you want to delete your account?
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">No, I don`t</button>
+                                <button type="button" className="btn btn-primary" onClick={DeleteAnAccount}>Yes, I`m sure</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="my-profile_all_info">
             <div className="my-profile_left_side">
