@@ -8,6 +8,7 @@ import statistics_image from "./assets/statistics.png"
 import {getLoginInfo, changeLink, axios_request, BASE_URL} from "../../utils/utils.js"
 import b_image from "./assets/b.png"
 import "./TNavbar.css";
+import Cookies from "js-cookie";
 
 
 const TNavbar = () => {
@@ -29,8 +30,11 @@ const TNavbar = () => {
     }, [data]
   );
 
+  const logOut = () => {
+      Cookies.remove("jwt_session")
+      window.location.reload()
+  }
 
-  
   useEffect(() => {
     getUserInfo();
   }, [getUserInfo]);
@@ -61,7 +65,7 @@ const TNavbar = () => {
                     <NavDropdown.Item className="ms-auto custom_nav_link">{userInfo.first_name}</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item a href="#" className="ms-auto custom_nav_link">My Profile</NavDropdown.Item>
-                    <NavDropdown.Item a href="#" className="ms-auto custom_nav_link">Sign out</NavDropdown.Item>
+                    <NavDropdown.Item a href="#" className="ms-auto custom_nav_link" onClick={logOut}>Sign out</NavDropdown.Item>
         </NavDropdown>
 
         <Nav.Link href="/"> <Image title="My Businesses" className="element__image__nav" src={businesses_image} alt="businesses"/> </Nav.Link>
