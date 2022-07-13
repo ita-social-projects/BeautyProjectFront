@@ -9,6 +9,24 @@ import "./MyProfile.css"
 
 const Block_info = (props) => {
 
+    const navigate = useNavigate();
+
+    const handlerNavigatorMainPage = () => {
+        navigate("/")
+    }
+
+    const handlerNavigatorOrders = () => {
+        navigate("/")
+    }
+
+    const handlerNavigatorReviews = () => {
+        navigate("/")
+    }
+
+    const handlerNavigatorBusiness = () => {
+        navigate("/my_businesses/" + props.key)
+    }
+
     return (
         <div className="my-profile_all_info">
             <div className="my-profile_left_side">
