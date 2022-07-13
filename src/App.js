@@ -16,6 +16,7 @@ import TNavbar from "./components/navbar/TNavbar";
 import ServiceByBusiness from "./components/services_by_business/services_by_business";
 import ParticularBusiness from "./components/business_page/business_page";
 import BusinessList from "./components/businesses_list/BusinessesList";
+import AddBusiness from "./components/add_business/add_business";
 
 class App extends React.Component {
     render() {
@@ -55,9 +56,9 @@ class App extends React.Component {
                         </Route>
                         <Route path="/business/:id" element={<ParticularBusiness/>}>
                         </Route>
-                        <Route path="*" element={<NotFound />}>
+                        <Route path="/add_business" element={<AddBusiness/>}>
                         </Route>
-                        <Route path="/business/:id/services/" element={<ServiceByBusiness/>}>
+                        <Route path="*" element={<NotFound />}>
                         </Route>
                         <Route path="/allbusinesses" element={<BusinessList/>}>
                         </Route>
