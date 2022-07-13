@@ -84,7 +84,7 @@ const EditBusiness = () => {
             url: BASE_URL + "business/" + id + "/",
             data: JSON.stringify(formValue)
         }).then(response => {
-            console.log(response)
+            navigate("/business/" + id)
         }).catch(error => {
             const errors = error.response.data
             for (const currentKey of Object.keys(errors)) {
