@@ -9,10 +9,12 @@ import {
 import {MainPage} from "./components/main_page/MainPage";
 import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
-import SpecialistPage from "./components/specialist_page/specialist_page.js";
+import SpecialistPage from "./components/specialist_page/specialist_page";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
 import TNavbar from "./components/navbar/TNavbar";
+import SpecialistSchedule from "./components/specialist_schedule/schedule";
+
 
 class App extends React.Component {
     render() {
@@ -22,7 +24,7 @@ class App extends React.Component {
                 rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
                 integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-                crossorigin="anonymous"
+                crossOrigin="anonymous"
                 />
                 <div>
                     <nav>
@@ -33,6 +35,9 @@ class App extends React.Component {
                             </li>
                             <li>
                                 <Link to="/specialist">Specialist</Link>
+                            </li>
+                            <li>
+                                <Link to="/schedule">Specialist schedule</Link>
                             </li>
                         </ul>
                     </nav>
@@ -46,6 +51,8 @@ class App extends React.Component {
                         <Route path="/specialist" element={<SpecialistPage/>}>
                         </Route>
                         <Route path="/add_review" element={<AddReviewModal to_user="63"/>}>
+                        </Route>
+                        <Route path="/schedule" element={<SpecialistSchedule/>}>
                         </Route>
                         <Route path="*" element={<NotFound />}>
                         </Route>

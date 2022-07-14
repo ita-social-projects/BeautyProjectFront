@@ -18,8 +18,8 @@ const SpecialistPage = () => {
         "bio",
         "rating"
     ]
-
-    const url = "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/"
+    
+    const url = "http://3.65.253.196/"
     const request_url = "api/v1/specialist/"
 
     const handleSubmit = async (event) => {
