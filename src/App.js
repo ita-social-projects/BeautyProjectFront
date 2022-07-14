@@ -76,9 +76,6 @@ class App extends React.Component {
                             <Link to="/specialist">Specialist</Link>
                         </li>
                         <li>
-                            <Link to="/businesses_search">Search Businesses</Link>
-                        </li>
-                        <li>
                             <Link to="/allbusinesses">All Businesses</Link>
                         </li>
                     </ul>
