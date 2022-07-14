@@ -1,0 +1,98 @@
+.micro_image_ord{
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.time-date-ord {
+    text-align: right !important;
+}
+
+.button-col-ord {
+    --bs-btn-bg: #f2f6fa !important;
+    --bs-btn-border-color: #e1ebf6 !important;
+    margin-left: 5px !important;
+}
+
+.btn-ord-open {
+    color: #5E81AC !important;
+}
+
+.btn-ord-delete {
+    color: #BF616A !important;
+}
+
+.option-image-order {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.order-name {
+    font-size: 20px !important;
+    color: #2E3440 !important;
+    margin: 0% 0 !important;
+}
+
+.card-order {
+    margin-bottom: 0.7rem !important;
+    --bs-card-cap-bg: #f2f6fa !important;
+}
+
+.row-order {
+    padding: 4px 4px 4px 4px !important;
+}
+
+.order-img-spec {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin-left: 1rem;
+}
+
+
+element.style {
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.nav-pills {
+    --bs-nav-pills-link-active-color: #2E3440 !important;
+    --bs-nav-pills-link-active-bg: #e1ebf6 !important;
+}
+
+.badge {
+    --bs-badge-border-radius: 0.8rem !important;
+}

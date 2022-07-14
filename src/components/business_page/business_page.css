@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.business-page_page_wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.business-page-info_wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.business-page_left_wrapper{
+    width: 100%;
+    height: 100%;
+}
+.business-page_header_wrapper{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dcdee1;
+    border-top: 1px solid #dcdee1;
+}
+
+.business-page-calendar_wrapper{
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.business-page_calendar_main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.business-page_calendar_main > div{
+    margin: 6px;
+}
+
+.business-page_calendar_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 160px;
+    height: 160px;
+    user-select: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 5px 5px, rgba(0, 0, 0, 0.3) 10px 10px, rgba(0, 0, 0, 0.2) 15px 15px, rgba(18, 18, 18, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    transition: all ease-in-out 0.3s;
+}
+.business-page_calendar_item:hover{
+    transform: scale(1.05);
+}
+.business-page_calendar_item_header h2{
+    padding-left: 12px;
+}
+.business-page_calendar_item_time{
+    text-align: center;
+}
+.business-page_calendar_item_time h5{
+    font-size: 1.5rem;
+}
+.business-page_logo_wrapper{
+    width: 150px;
+    height: 150px;
+    user-select: none;
+    pointer-events: none;
+}
+.business-page_logo_wrapper img{
+    width: 150px;
+    height: 160px;
+}
+
+.business-page_location_wrapper{
+    width: 360px;
+    height: 360px;
+    background: #282c34;
+}
+.business-page_edit_button{
+    background: #d9d9d9;
+    border-radius: 5px;
+    border: none;
+    width: 50px;
+    height: 30px;
+    transition: all ease-in-out 0.3s;
+}
+.business-page_edit_button_block{
+    margin-top: 10px;
+}
+
+.business-page_edit_button:hover{
+    background: none;
+    border: 1px solid #000;
+}
+
+.business-page_statistic_button{
+    background: #d9d9d9;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    transition: all ease-in-out 0.3s;
+}
+.business-page_statistic_button:hover{
+    background: none;
+    border: 1px solid #000;
+}
