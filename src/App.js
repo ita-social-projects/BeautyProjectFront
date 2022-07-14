@@ -1,14 +1,10 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import MainPage from "./components/main_page/MainPage";
 import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
+import StatisticPage from "./components/statisticPage/statisticPage";
 import SpecialistPage from "./components/specialist_page/specialist_page.js";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
@@ -20,6 +16,8 @@ import AddBusiness from "./components/add_business/add_business";
 
 import "./App.css"
 import EditBusiness from "./components/edit_business/edit_business.js";
+import "./App.css";
+import MyProfile from "./components/my_profile/MyProfile";
 
 class App extends React.Component {
     render() {
@@ -45,11 +43,14 @@ class App extends React.Component {
                         </Route>
                         <Route path="/register" element={<RegisterPage/>}>
                         </Route>
+                        <Route path="/statistic/:businessId" element={<StatisticPage />} />
                         <Route path="/specialist" element={<SpecialistPage/>}>
                         </Route>
                         <Route path="/add_review" element={<AddReviewModal to_user="63"/>}>
                         </Route>
                         <Route path="/business/:id" element={<ParticularBusiness/>}>
+                        </Route>
+                        <Route path="/business/:id/services" element={<ServiceByBusiness/>}>
                         </Route>
                         <Route path="/add_business" element={<AddBusiness/>}>
                         </Route>
@@ -58,6 +59,8 @@ class App extends React.Component {
                         <Route path="*" element={<NotFound />}>
                         </Route>
                         <Route path="/allbusinesses" element={<BusinessList/>}>
+                        </Route>
+                        <Route path="/my_profile" element={<MyProfile/>}>
                         </Route>
                     </Routes>
                     <ul>
