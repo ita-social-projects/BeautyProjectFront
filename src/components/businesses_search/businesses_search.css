@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.businesses_search_inner_wrapper{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: left;*/
+    align-items: center;
+
+    min-width: 600px;
+    height: 100vh;
+}
+
+.form__input{
+    width: 300px;
+    padding: 5px 10px;
+    border: 2px solid #8d33ac;
+
+    transition: 0.1s ease-in-out;
+}
+
+
+.form__input:focus{
+    text-decoration: none;
+    outline: none;
+
+    transform: scale(1.1);
+}
+
+.form__item{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    max-width: 300px;
+}
+
+.local-business_wrapper {
+
+    width: 300px;
+    margin: 10px auto;
+    border: 2px solid #8d33ac;
+
+}
+
+.businesses_search_pagination_wrapper {
+
+    display: flex;
+
+    justify-content: center;
+    width: 300px;
+    margin: 15px auto;
+
+}
+.search_keyword_form,
+.search_local_form {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.businesses_search_form_wrapper{
+    width: 50%;
+    margin: 5px;
+    border: 3px solid #8d33ac;
+    padding: 10px 20px 10px 20px;
+}
+
+.businesses_search_header{
+    size: ;
+    text-align: center;
+    border: none;
+    padding: 10px 20px 10px 20px;
+}
+
+
+.businesses_search_wrapper{
+    width: 50%;
+    border: 3px solid #8d33ac;
+    padding-bottom: 20px;
+    margin: 5px 20px 20px 20px;
+    visibility: hidden;
+}
+
+.outer_wrpaper_business_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.local-business_header_type,
+.local-business_header_distance,
+.local-business_header_link{
+    text-align: center;
+}
