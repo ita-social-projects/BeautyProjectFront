@@ -87,6 +87,14 @@ const ParticularBusiness = () => {
         if (Object.keys(businessInfo).includes("owner")){
             if (businessInfo.owner === userInfo.first_name){
                 return (
+                <div className="business-page_owner_navigation">
+                    <div className="business-page_edit_button_block">
+                        <button className="business-page_statistic_button"
+                                onClick={event => navigate("/statistic/" + id)}
+                        >
+                            Show statistic
+                        </button>
+                    </div>
                     <div className="business-page_edit_button_block">
                         <button className="business-page_edit_button"
                                 onClick={event => navigate("/edit_business/" + id)}
@@ -94,6 +102,7 @@ const ParticularBusiness = () => {
                             Edit
                         </button>
                     </div>
+                </div>
                 )
             }
         }

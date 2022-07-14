@@ -79,6 +79,8 @@ const EditBusiness = () => {
         currentElement.classList.remove("edit-business_validation_error");
         currentErrorMessage.classList.remove("error_message_shown");
 
+        console.log(JSON.stringify(formValue))
+
         await axios_request({
             method: "patch",
             url: BASE_URL + "business/" + id + "/",
@@ -87,6 +89,7 @@ const EditBusiness = () => {
             navigate("/business/" + id)
         }).catch(error => {
             const errors = error.response.data
+            console.log(errors)
             for (const currentKey of Object.keys(errors)) {
                 setError(currentKey, errors[currentKey])
             }
@@ -106,6 +109,22 @@ const EditBusiness = () => {
         }
         if (key === "input_Business"){
             key = "input_name"
+            currentElement = document.querySelector(`[name='${key}']`);
+        }
+        if (key === "input_location"){
+            let new_error_message = error_message
+            if (!(error_message.latitude == null && error_message.longitude == null)){
+                if (error_message.latitude == null){
+                    new_error_message = "longitude: " + error_message.longitude
+                }
+                else if (error_message.longitude == null){
+                    new_error_message = "latitude: " + error_message.latitude
+                }
+                else{
+                    new_error_message = "latitude: " + error_message.latitude + "\n" + "longitude: " + error_message.longitude
+                }
+            }
+            error_message = new_error_message
             currentElement = document.querySelector(`[name='${key}']`);
         }
         let currentErrorMessage = currentElement.parentElement.querySelector("p");
