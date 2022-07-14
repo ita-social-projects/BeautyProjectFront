@@ -108,6 +108,15 @@ const EditProfile = () => {
         });
     }
 
+    const setError = (key, error_message) => {
+        key = "input_" + key
+        let currentElement = document.querySelector(`[name='${key}']`);
+        let currentErrorMessage = currentElement.parentElement.querySelector("p");
+        currentElement.parentElement.classList.add("edit-profile_validation_error");
+        currentErrorMessage.classList.add("error_message_shown");
+        currentErrorMessage.innerText = error_message;
+    }
+
     const DeleteAnAccount = (info) => {
         axios_request({
             method: "delete",
