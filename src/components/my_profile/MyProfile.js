@@ -4,6 +4,7 @@ import axios from "axios";
 import {axios_request, BASE_URL, changeLink, getLoginInfo} from "../../utils/utils";
 import {useNavigate} from "react-router-dom";
 import Cookies from "js-cookie";
+import edit_logo from ".//assets/img/edit.png"
 
 import "./MyProfile.css"
 
@@ -192,12 +193,32 @@ const MyProfile = () => {
                            avatar={info.avatar}/>
     }
 
+    const navigate = useNavigate();
+
+    const handlerNavigatorEditProfile = () => {
+        navigate("/edit_profile")
+    }
+
     return (
         <Container fluid={true}>
             <div className="my-profile_whole_page">
                 <div className="my-profile_header">
                     <div className="my-profile_block_title">
                         <h1>My Profile</h1>
+                    </div>
+                    <div className="my-profile_edit_block" onClick={handlerNavigatorEditProfile}>
+                        {/*<button className="my-profile_edit_button">*/}
+                        {/*    <img src={edit_logo} alt="EDIT"/>*/}
+                        {/*    Edit my profile*/}
+                        {/*</button>*/}
+                        <div className="my-profile_edit_text">
+                            <p>
+                                Edit my profile
+                            </p>
+                        </div>
+                        {/*<div className="my-profile_edit_logo">*/}
+                        {/*    <img src={edit_logo} alt="EDIT"/>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
                 <div className="my-profile_main_info">
