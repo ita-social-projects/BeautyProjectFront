@@ -1,0 +1,5 @@
+thead, tr, table{
+    border: 3px solid #8d33ac !important;
+    margin: 0 auto;
+    width: 95% !important;
+}

@@ -11,6 +11,7 @@
     "jquery": "^3.6.0",
     "js-cookie": "^3.0.1",
     "jwt-decode": "^3.1.2",
+    "package-lock.json": "^1.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
     "react-bootstrap-table-next": "^4.0.3",
@@ -19,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "react-time-range": "^1.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

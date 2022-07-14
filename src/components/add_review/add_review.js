@@ -3,26 +3,23 @@ import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Cookies from "js-cookie"
 import $ from "jquery";
-import jwtDecode from "jwt-decode";
+import {BASE_URL, axios_request, getLoginInfo} from "../../utils/utils";
 import add_review from "./add_review.css";
 
 const AddReviewModal = (props) => {
+    const [rating, setRating] = React.useState(null)
+    const [clicked, setClicked] = React.useState(false)
     const [formValue, setFormValue] = React.useState({
         text_body: "",
-        rating: 0,
         from_user: 0,
         to_user: 0
     });
 
-    let mainRaitingvalue = 0;
-
-    let clicked = false
-
     const handleSubmit = async (event) => {
         const addReviewFormData = new FormData();
         addReviewFormData.append("text_body", formValue.text_body)
-        addReviewFormData.append("rating", mainRaitingvalue)
-        addReviewFormData.append("from_user", jwtDecode(Cookies.get("jwt_session")).user_id)
+        addReviewFormData.append("rating", rating)
+        addReviewFormData.append("from_user", getLoginInfo()["user_id"])
         addReviewFormData.append("to_user", props.to_user)
         event.preventDefault()
 
@@ -35,13 +32,11 @@ const AddReviewModal = (props) => {
         }
 
         try {
-            const response = await axios({
+            const response = await axios_request({
                 method: "post",
-                url: "https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/api/v1/" + props.to_user + "/reviews/add/",
-                data: addReviewFormData,
-                headers: {"Content-Type": "application/json", "Authorization": "JWT " + Cookies.get("jwt_session")},
+                url: BASE_URL + props.to_user + "/reviews/add/",
+                data: addReviewFormData
             });
-            console.log(response.status === 201)
             $("#addReviewModal .btn-close").click()
             window.location.reload()
 
@@ -66,6 +61,12 @@ const AddReviewModal = (props) => {
             ...formValue,
             [event.target.name]: event.target.value
         });
+    }
+
+    const handleRatingClick = (event, id) => {
+        setClicked(true)
+        changeStarsState(event, id)
+        setRating(id + 1)
     }
 
     const changeStarsState = (event, id) => {
@@ -96,14 +97,11 @@ const AddReviewModal = (props) => {
         }
     }
 
-    const handleRatingClick = (event, id) => {
-        clicked = true
-        changeStarsState(event, id)
-        mainRaitingvalue = id + 1
-    }
-
     return (
         <Container>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#addReviewModal">
+                Add review
+            </button>
             <div className="modal fade" id="addReviewModal" tabIndex="-1" aria-labelledby="addReviewModalLabel"
                  aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
@@ -189,7 +187,7 @@ const AddReviewModal = (props) => {
                                             onChange={handleChange}
                                         />
                                     </div>
-                                    <div className="add-review_form_item">
+                                    <div className="add-review_form_item_submit">
                                         <button
                                             type="submit"
                                             className="add-review_form__input__button"
