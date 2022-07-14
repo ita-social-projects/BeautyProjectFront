@@ -53,6 +53,8 @@ class App extends React.Component {
                         </Route>
                         <Route path="/business/:id" element={<ParticularBusiness/>}>
                         </Route>
+                        <Route path="/business/:id/services" element={<ServiceByBusiness/>}>
+                        </Route>
                         <Route path="/add_business" element={<AddBusiness/>}>
                         </Route>
                         <Route path="/edit_business/:id" element={<EditBusiness/>}>
