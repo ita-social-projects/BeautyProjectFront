@@ -1,14 +1,10 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import MainPage from "./components/main_page/MainPage";
 import LoginPage from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
+import StatisticPage from "./components/statisticPage/statisticPage";
 import SpecialistPage from "./components/specialist_page/specialist_page.js";
 import AddReviewModal from "./components/add_review/add_review"
 import NotFound from "./components/error_pages/NotFound/NotFound";
@@ -47,6 +43,7 @@ class App extends React.Component {
                         </Route>
                         <Route path="/register" element={<RegisterPage/>}>
                         </Route>
+                        <Route path="/statistic/:businessId" element={<StatisticPage />} />
                         <Route path="/specialist" element={<SpecialistPage/>}>
                         </Route>
                         <Route path="/add_review" element={<AddReviewModal to_user="63"/>}>
