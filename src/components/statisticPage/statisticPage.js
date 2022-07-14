@@ -3,15 +3,17 @@ import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import LineChart from "./lineChart";
 import RadioButtons from "./radioButtons";
-import axios from "axios";
 import BusinessTable from "./businessTable";
 import SpecialistsTable from "./specialistsTable";
-import jwt_decode from "jwt-decode";
-import Cookies from "js-cookie";
+import { axios_request, BASE_URL } from "../../utils/utils.js";
+import "./statisticPage.css";
+import { useNavigate } from "react-router-dom";
+
 
 export default function StatisticPage() {
+  const navigate = useNavigate();
+
   const { businessId } = useParams();
-  const url = `https://g6bcybbjx1.execute-api.eu-central-1.amazonaws.com/api/v1/statistic/${businessId}/`;
 
   const [timeInterval, setTimeInterval] = useState("lastSevenDays");
 
@@ -21,26 +23,13 @@ export default function StatisticPage() {
   const [businessTableData, setBusinessTableData] = useState([]);
   const [specialistsTableData, setSpecialistsTableData] = useState([]);
 
-  const getLoginInfo = () => {
-    const token = Cookies.get("jwt_session");
-    const user_id = token ? jwt_decode(token).user_id : null;
-
-    return { token: token, user_id: user_id };
-  };
-
   const getStatistic = useCallback(async () => {
-    const { token } = getLoginInfo();
-
-    await axios({
+    await axios_request({
       method: "get",
-      url: url + `?timeInterval=${timeInterval}`,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `JWT ${token}`,
-      },
+      url: BASE_URL + `statistic/${businessId}/?timeInterval=${timeInterval}`,
     })
-      .then((response) => response.data)
-      .then((data) => {
+      .then((response) => {
+        const data = response.data;
         let labels = data.line_chart_data.labels;
 
         if (timeInterval === "currentMonth") {
@@ -56,22 +45,32 @@ export default function StatisticPage() {
         setBusinessTableData(data.general_statistic);
         setSpecialistsTableData(data.business_specialists);
       })
-      .catch((error) => alert(error));
-  }, [timeInterval, url]);
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status === 404) {
+          navigate("/NotFound");
+        }
+      });
+  }, [timeInterval, businessId, navigate]);
 
   useEffect(() => {
     getStatistic();
   }, [getStatistic]);
 
+  if (isNaN(+businessId)) {
+    navigate("/NotFound");
+  }
+
   return (
     <Container className="mb-8">
+      <h4 className="mt-5 mb-3 text-center">General Business Statistic</h4>
       <LineChart chartLabels={chartLabels} chartData={chartData} />
       <RadioButtons handleChange={setTimeInterval} />
 
-      <h4 className="mt-5 mb-3">General Business Statistic</h4>
+      <h4 className="mt-5 mb-3 text-center">Detail Business Statistic</h4>
       <BusinessTable data={businessTableData} />
 
-      <h4 className="mt-5 mb-3">Statistic of Each Specialist</h4>
+      <h4 className="mt-5 mb-3 text-center">Statistic of Each Specialist</h4>
       <SpecialistsTable className="mb-5" data={specialistsTableData} />
     </Container>
   );

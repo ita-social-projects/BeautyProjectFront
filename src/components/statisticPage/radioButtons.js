@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 
 export default function RadioButtons({ handleChange }) {
   return (
-    <Form className="m-3">
+    <Form className="m-3 text-center">
       <div key={"inline-radio"} className="mb-3">
         <Form.Check
           inline
