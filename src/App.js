@@ -19,6 +19,7 @@ import "./App.css"
 import EditBusiness from "./components/edit_business/edit_business.js";
 import "./App.css";
 import MyProfile from "./components/my_profile/MyProfile";
+import EditProfile from "./components/edit_profile/EditProfile";
 
 class App extends React.Component {
     render() {
@@ -62,6 +63,8 @@ class App extends React.Component {
                         <Route path="/all_businesses" element={<BusinessList/>}>
                         </Route>
                         <Route path="/my_profile" element={<MyProfile/>}>
+                        </Route>
+                        <Route path="/edit_profile" element={<EditProfile/>}>
                         </Route>
                     </Routes>
                     <Footer />
