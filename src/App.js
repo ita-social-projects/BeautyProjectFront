@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import MainPage from "./components/main_page/MainPage";
 import LoginPage from "./components/login_page/login_page";
@@ -13,6 +13,7 @@ import ServiceByBusiness from "./components/services_by_business/services_by_bus
 import ParticularBusiness from "./components/business_page/business_page";
 import BusinessList from "./components/businesses_list/BusinessesList";
 import AddBusiness from "./components/add_business/add_business";
+import Footer from "./components/footer/footer";
 
 import "./App.css"
 import EditBusiness from "./components/edit_business/edit_business.js";
@@ -63,17 +64,7 @@ class App extends React.Component {
                         <Route path="/my_profile" element={<MyProfile/>}>
                         </Route>
                     </Routes>
-                    <ul>
-                        <li>
-                            <Link to="/add_review">Add review</Link>
-                        </li>
-                        <li>
-                            <Link to="/specialist">Specialist</Link>
-                        </li>
-                        <li>
-                            <Link to="/allbusinesses">All Businesses</Link>
-                        </li>
-                    </ul>
+                    <Footer />
                 </div>
             </Router>
         )
