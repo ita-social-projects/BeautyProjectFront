@@ -1,0 +1,4 @@
+.react-bootstrap-table th, .react-bootstrap-table td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}

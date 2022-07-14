@@ -39,7 +39,7 @@ const ServiceByBusiness = () => {
 
     else {
         return (
-        <Table striped bordered hover>
+        <Table striped bordered hover className="service-by-business">
             <thead>
             <tr>
                 <th>Name</th>

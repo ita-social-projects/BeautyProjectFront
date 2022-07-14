@@ -94,8 +94,24 @@
     height: 30px;
     transition: all ease-in-out 0.3s;
 }
+.business-page_edit_button_block{
+    margin-top: 10px;
+}
 
 .business-page_edit_button:hover{
+    background: none;
+    border: 1px solid #000;
+}
+
+.business-page_statistic_button{
+    background: #d9d9d9;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    transition: all ease-in-out 0.3s;
+}
+.business-page_statistic_button:hover{
     background: none;
     border: 1px solid #000;
 }
