@@ -224,6 +224,12 @@ textarea{
 #react-time-range{
     text-align: center;
 }
+.edit-business_form_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .edit-business_form_section_inner_wrapper{
     display: flex;
@@ -234,6 +240,10 @@ textarea{
 .edit-business_main_map_wrapper{
     margin-top: 20px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .edit-business_main_map{
     border-radius: 5px;
