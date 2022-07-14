@@ -7,21 +7,18 @@ import {BASE_URL, axios_request, getLoginInfo} from "../../utils/utils";
 import add_review from "./add_review.css";
 
 const AddReviewModal = (props) => {
+    const [rating, setRating] = React.useState(null)
+    const [clicked, setClicked] = React.useState(false)
     const [formValue, setFormValue] = React.useState({
         text_body: "",
-        rating: 0,
         from_user: 0,
         to_user: 0
     });
 
-    let mainRaitingvalue = 0;
-
-    let clicked = false
-
     const handleSubmit = async (event) => {
         const addReviewFormData = new FormData();
         addReviewFormData.append("text_body", formValue.text_body)
-        addReviewFormData.append("rating", mainRaitingvalue)
+        addReviewFormData.append("rating", rating)
         addReviewFormData.append("from_user", getLoginInfo()["user_id"])
         addReviewFormData.append("to_user", props.to_user)
         event.preventDefault()
@@ -66,6 +63,12 @@ const AddReviewModal = (props) => {
         });
     }
 
+    const handleRatingClick = (event, id) => {
+        setClicked(true)
+        changeStarsState(event, id)
+        setRating(id + 1)
+    }
+
     const changeStarsState = (event, id) => {
         let starsList = document.querySelectorAll(".add-review_star svg")
         let counter = 0
@@ -92,12 +95,6 @@ const AddReviewModal = (props) => {
                 star.classList.remove("active")
             }
         }
-    }
-
-    const handleRatingClick = (event, id) => {
-        clicked = true
-        changeStarsState(event, id)
-        mainRaitingvalue = id + 1
     }
 
     return (
@@ -190,7 +187,7 @@ const AddReviewModal = (props) => {
                                             onChange={handleChange}
                                         />
                                     </div>
-                                    <div className="add-review_form_item">
+                                    <div className="add-review_form_item_submit">
                                         <button
                                             type="submit"
                                             className="add-review_form__input__button"

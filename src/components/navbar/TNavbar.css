@@ -1,43 +1,67 @@
 .nav-panel {
-    --bs-navbar-brand-margin-end: 5.5rem !important;
-    --bs-navbar-brand-font-size: 2rem !important;
-    --bs-body-font-family: 0 !important;
-    margin-bottom: 14px;
-    padding: 10px !important;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    background-color: #f2f6fa;
 }
 
-.custom_nav_link {
-    align-self: flex-end!important;  
-    text-align: end !important;
+.nav-tabs {
+    --bs-nav-tabs-border-color: #8FBCBB !important;
+    --bs-nav-tabs-link-hover-border-color: #8FBCBB !important;
+}
+
+.brand_icon {
+    width: 48px;
+    height: 48px;
 }
 
 .user__image__logo {
-    width: 48px;
-    height: 48px;
-    margin: auto !important;
-    padding: auto !important;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
 }
 
 .element__image__nav {
-    width: 40px;
-    height: 40px;
-    margin: 1px 12px 1px 12px;
+    width: 32px;
+    height: 32px;
+    margin: 1px 4px 1px 4px;
 }
 
 .dropdown-menu {
-    --bs-dropdown-min-width: auto !important;
     --bs-dropdown-padding-x: 6px !important;
-    --bs-dropdown-padding-y: 10px !important;
-    --bs-dropdown-link-hover-bg: rgba(92, 234, 236, 0.782) !important;
-    --bs-dropdown-spacer: 0.5rem !important;
+    --bs-dropdown-link-hover-bg: #81A1C1 !important;
 }
 
-.dropdown-toggle::after {
-    border: 0cm !important;
+.dropdown-item {
+    color: #2E3440 !important;
+}
+
+.form-control {
+    color: #5E81AC !important;
+    border: 1px solid #88C0D0 !important;
+}
+
+.form-control:focus {
+    border-color: antiquewhite !important;
+    box-shadow: 0 0 0 0.1rem #88C0D0 !important;
+}
+
+.dropdown-toggle:after {
     content: none !important;
 }
 
-.bs-tooltip-bottom {
-    padding: 20px 20px 20px 20px !important;
+.input-group {
+    margin-left: 10px;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #2E3440 !important;
+    --bs-btn-border-color: #88C0D0 !important;
+}
+
+.btn:hover {
+    background-color: #88C0D0 !important;
+}
+
+.btn:focus {
+    background-color: #88C0D0 !important;
+    box-shadow: 0 0 0 0.1rem #88C0D0 !important;
 }

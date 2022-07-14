@@ -1,0 +1,257 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+hr{
+    height: 1px;
+    background: #D9D9D9;
+    width: 100%;
+}
+
+h1{
+    margin: 0 !important;
+}
+
+p{
+    margin: 0 !important;
+}
+textarea{
+    resize: none !important;
+}
+
+.edit-business_midline_block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.edit-business_midline_header_block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.edit-business_midline_header{
+    position: relative;
+}
+.edit-business_midline_header:before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 2px;
+    background: #D9D9D9;
+    left: 110%;
+    top: 50%;
+    position: absolute;
+}
+.edit-business_midline_header:after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 2px;
+    background: #D9D9D9;
+    right: 110%;
+    top: 50%;
+    position: absolute;
+}
+.edit-business_midline_comment{
+    font-style: italic;
+}
+.edit-business_form_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.edit-business_form_section_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.edit-business_add_logo_block{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.edit-business_form_item_input label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: #D9D9D9;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 4px 0 4px 4px;
+}
+.edit-business_form_item_input label > img{
+    width: 15px;
+    height: 15px;
+    margin-left: 50px;
+    margin-right: 5px;
+}
+.edit-business_form__input{
+    width: 300px;
+    height: 30px;
+    padding: 7px;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background: #D9D9D9;
+    border: none;
+    outline: none;
+}
+.edit-business_form__textarea{
+    width: 345px;
+    height: 145px;
+    padding: 7px;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background: #D9D9D9;
+    border: none;
+    outline: none;
+}
+
+#upload_logo{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.edit-business_logo_container{
+    width: 170px;
+    height: 170px;
+    border-radius: 5px;
+    background: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.edit-business_logo_container img{
+    width: 170px;
+    height: 170px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.edit-business_form_section_calendar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.edit-business_calendar_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 160px;
+    height: 160px;
+    user-select: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 5px 5px, rgba(0, 0, 0, 0.3) 10px 10px, rgba(0, 0, 0, 0.2) 15px 15px, rgba(18, 18, 18, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    transition: all ease-in-out 0.3s;
+    margin: 10px;
+    cursor: pointer;
+}
+.edit-business_calendar_item:hover{
+    transform: scale(1.05);
+}
+.edit-business_calendar_item_time{
+    text-align: center;
+}
+.edit-business_calendar_item_time h5{
+    font-size: 1.2rem;
+}
+.edit-business_submit_button_block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0 50px 0;
+}
+.edit-business_form__input__button{
+    width: 200px;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    background: #D9D9D9;
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: all ease-in-out 0.3s;
+    z-index: 1;
+}
+.edit-business_form__input__button:hover{
+    border: 1px solid #000;
+    background: none;
+}
+.edit-business_time_picker_main_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.edit-business_time_picker_submit_block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.edit-business_time_picker_submit{
+    width: 100px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    outline: none;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    background: #D9D9D9;
+}
+#react-time-range{
+    text-align: center;
+}
+
+.edit-business_form_section_inner_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.edit-business_main_map_wrapper{
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.edit-business_main_map{
+    border-radius: 5px;
+    user-focus: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+.edit-business_form_error_message{
+    opacity: 0;
+    visibility: hidden;
+}
+.error_message_shown{
+    opacity: 100%;
+    visibility: visible;
+}
+
+.edit-business_validation_error{
+    background: rgba(255, 134, 134, 0.5);
+}
