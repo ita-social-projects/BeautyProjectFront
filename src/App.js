@@ -16,6 +16,7 @@ import TNavbar from "./components/navbar/TNavbar";
 import ServiceByBusiness from "./components/services_by_business/services_by_business";
 import ParticularBusiness from "./components/business_page/business_page";
 import BusinessList from "./components/businesses_list/BusinessesList";
+import BusinessesSearch from "./components/businesses_search/businesses_search";
 
 class App extends React.Component {
     render() {
@@ -40,6 +41,9 @@ class App extends React.Component {
                             <li>
                                 <Link to="/allbusinesses">All Businesses</Link>
                             </li>
+                            <li>
+                                <Link to="/businesses_search">Search Businesses</Link>
+                            </li>
                         </ul>
                     </nav>
                     <Routes>
@@ -60,6 +64,8 @@ class App extends React.Component {
                         <Route path="/business/:id/services/" element={<ServiceByBusiness/>}>
                         </Route>
                         <Route path="/allbusinesses" element={<BusinessList/>}>
+                        </Route>
+                        <Route path="/businesses_search" element={<BusinessesSearch/>}>
                         </Route>
                     </Routes>
                 </div>
