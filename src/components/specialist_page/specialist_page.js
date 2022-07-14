@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "./specialist_page.css";
+import {BASE_URL} from "../../utils/utils";
 
 
 const SpecialistPage = () => {
@@ -18,9 +19,8 @@ const SpecialistPage = () => {
         "bio",
         "rating"
     ]
-    
-    const url = "http://3.65.253.196/"
-    const request_url = "api/v1/specialist/"
+
+    const request_url = "specialist/"
 
     const handleSubmit = async (event) => {
         const specialistFormData = new FormData();
@@ -37,7 +37,7 @@ const SpecialistPage = () => {
             document.getElementsByClassName("error_message")[0].style.visibility = "hidden";
             const response = await axios({
                 method: "get",
-                url: url + request_url + formValue.id,
+                url: BASE_URL + request_url + formValue.id,
                 headers: {"Content-Type": "application/json"},
             });
 

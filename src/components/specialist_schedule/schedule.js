@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import jwtDecode from "jwt-decode";
 import Cookies from "js-cookie";
 import "./schedule.css";
+import {BASE_URL, changeLink, getLoginInfo} from "../../utils/utils";
 
 
 function DateToStringYMH(current_date){
@@ -45,8 +46,8 @@ function get7DaysAfterCurrent(){
 
 const SpecialistSchedule = () => {
 
-    const url = "http://3.65.253.196/"
-    const request_url = "api/v1/owner_schedule/"
+    const url = BASE_URL
+    const request_url = "owner_schedule/"
 
     const handleSubmit = async (event) => {
         const specialist_id = jwtDecode(Cookies.get("jwt_session")).user_id
@@ -58,7 +59,7 @@ const SpecialistSchedule = () => {
         try {
             const response = await axios({
                 method: "get",
-                url: url + "api/v1/position",
+                url: url + "position",
                 headers: {"Content-Type": "application/json", "Authorization": "JWT " + Cookies.get("jwt_session")},
             })
             positions = response.data.results
