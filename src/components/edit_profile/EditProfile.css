@@ -1,0 +1,141 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.edit-profile_whole_page{
+    background-color: white;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin-left: 35px;
+}
+
+.edit-profile_header{
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-profile_block_title{
+    font-size: 64px;
+}
+
+.edit-profile_bottoms_save_cancel{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.edit-profile_edit_logo{
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 5px;
+}
+
+.edit-profile_edit_logo img{
+    width: 15px;
+    height: 15px;
+}
+
+.edit-profile_main_info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-profile_all_info{
+    width: 100%;
+    display: flex;
+    min-height: fit-content;
+}
+
+.edit-profile_left_side{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-profile_avatar{
+    width: 200px;
+    height: 200px;
+}
+
+.edit-profile_avatar img{
+    width: 200px;
+    height: 200px;
+}
+
+.edit-profile_bio{
+    width: 100%;
+    font-family: 'Montserrat', cursive;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.edit-profile_links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-profile_redirect_link{
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.edit-profile_delete_block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.edit-profile_right_side{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-profile_fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+}
+
+.edit-profile_field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 8px 0;
+}
+
+.edit-profile_field_name{
+    font-size: 20px;
+}
+
+.edit-profile_field_value{
+    font-size: 24px;
+    text-align: start;
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    background: #d9d9d9;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    margin: 4px;
+}
