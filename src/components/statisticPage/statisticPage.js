@@ -6,6 +6,8 @@ import RadioButtons from "./radioButtons";
 import axios from "axios";
 import BusinessTable from "./businessTable";
 import SpecialistsTable from "./specialistsTable";
+import jwt_decode from "jwt-decode";
+import Cookies from "js-cookie";
 
 export default function StatisticPage() {
   const { businessId } = useParams();
@@ -19,11 +21,23 @@ export default function StatisticPage() {
   const [businessTableData, setBusinessTableData] = useState([]);
   const [specialistsTableData, setSpecialistsTableData] = useState([]);
 
+  const getLoginInfo = () => {
+    const token = Cookies.get("jwt_session");
+    const user_id = token ? jwt_decode(token).user_id : null;
+
+    return { token: token, user_id: user_id };
+  };
+
   const getStatistic = useCallback(async () => {
+    const { token } = getLoginInfo();
+
     await axios({
       method: "get",
       url: url + `?timeInterval=${timeInterval}`,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${token}`,
+      },
     })
       .then((response) => response.data)
       .then((data) => {

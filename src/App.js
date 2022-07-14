@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { MainPage } from "./components/main_page/MainPage";
-import { LoginPage } from "./components/login_page/login_page";
 import RegisterPage from "./components/register_page/register_page";
 import StatisticPage from "./components/statisticPage/statisticPage";
 import LoginPage from "./components/login_page/login_page";
