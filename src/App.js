@@ -14,11 +14,13 @@ import ParticularBusiness from "./components/business_page/business_page";
 import BusinessList from "./components/businesses_list/BusinessesList";
 import AddBusiness from "./components/add_business/add_business";
 import Footer from "./components/footer/footer";
+import MyOrders from "./components/my_orders/MyOrders";
 
 import "./App.css"
 import EditBusiness from "./components/edit_business/edit_business.js";
 import "./App.css";
 import MyProfile from "./components/my_profile/MyProfile";
+import BusinessesSearch from "./components/businesses_search/businesses_search";
 import EditProfile from "./components/edit_profile/EditProfile";
 
 class App extends React.Component {
@@ -50,6 +52,8 @@ class App extends React.Component {
                         </Route>
                         <Route path="/add_review" element={<AddReviewModal to_user="63"/>}>
                         </Route>
+                        <Route path="/businesses_search" element={<BusinessesSearch/>}>
+                        </Route>
                         <Route path="/business/:id" element={<ParticularBusiness/>}>
                         </Route>
                         <Route path="/business/:id/services" element={<ServiceByBusiness/>}>
@@ -64,10 +68,14 @@ class App extends React.Component {
                         </Route>
                         <Route path="/my_profile" element={<MyProfile/>}>
                         </Route>
+                        <Route path="/my/orders" element={<MyOrders/>}>
+                        </Route>
                         <Route path="/edit_profile" element={<EditProfile/>}>
                         </Route>
                     </Routes>
+
                     <Footer />
+
                 </div>
             </Router>
         )

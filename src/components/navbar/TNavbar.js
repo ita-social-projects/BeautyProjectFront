@@ -76,7 +76,7 @@ const TNavbar = () => {
         </NavDropdown>
 
         <Nav.Link href="/"> <Image title="My Businesses" className="element__image__nav" src={businesses_image} alt="businesses"/> </Nav.Link>
-        <Nav.Link href="/"> <Image title="My Orders" className="element__image__nav" src={order_image} alt="orders"/> </Nav.Link>
+        <Nav.Link href="/my/orders"> <Image title="My Orders" className="element__image__nav" src={order_image} alt="orders"/> </Nav.Link>
         <Nav.Link href="/"> <Image title="Site Support" className="element__image__nav" src={support_image} alt="support"/> </Nav.Link>
         
       </Nav>
