@@ -74,6 +74,40 @@ const EditProfile = () => {
         navigate("/my_profile")
     }
 
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+
+        for (const key of Object.keys(formData)){
+            formData[key] = info[key]
+        }
+
+        const keyArray = ["input_first_name", "input_last_name", "input_patronymic", "input_email", "input_phone_number", "input_bio"]
+        for (const currentKey of keyArray) {
+            let currentElement = document.querySelector(`[name='${currentKey}']`);
+            let currentErrorMessage = currentElement.parentElement.querySelector("p");
+            currentElement.classList.remove("edit-business_validation_error");
+            currentErrorMessage.classList.remove("error_message_shown");
+        }
+
+        console.log(JSON.stringify(formData))
+
+        await axios_request({
+            method: "patch",
+            url: BASE_URL + `user/${getLoginInfo()["user_id"]}` + "/",
+            data: JSON.stringify(formData)
+        }).then(response => {
+            console.log(response.data)
+            handlerNavigatorMyProfile()
+        }).catch(error => {
+            const errors = error.response.data
+            console.log(errors)
+            for (const currentKey of Object.keys(errors)) {
+                setError(currentKey, errors[currentKey])
+            }
+            window.scrollTo(0,0)
+        });
+    }
+
     const DeleteAnAccount = (info) => {
         axios_request({
             method: "delete",
