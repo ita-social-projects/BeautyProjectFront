@@ -18,6 +18,10 @@ const TNavbar = () => {
 
   const navigate = useNavigate()
 
+  const handlerNavigatorMyProfile = () => {
+      navigate("/my_profile")
+  }
+
   const getUserInfo = useCallback(
     async () => {
       await axios_request({
@@ -64,9 +68,10 @@ const TNavbar = () => {
                     </div>
                 } 
                 id="basic-nav-dropdown">
-                    <NavDropdown.Item className="ms-auto custom_nav_link">{userInfo.first_name}</NavDropdown.Item>
+                    {/*<NavDropdown.Item className="ms-auto custom_nav_link">{userInfo.first_name}</NavDropdown.Item>*/}
+                    <NavDropdown.Item className="ms-auto custom_nav_link" onClick={handlerNavigatorMyProfile}>{userInfo.first_name}</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item a href="#" className="ms-auto custom_nav_link">My Profile</NavDropdown.Item>
+                    {/*<NavDropdown.Item a href="#" className="ms-auto custom_nav_link">My Profile</NavDropdown.Item>*/}
                     <NavDropdown.Item a href="#" className="ms-auto custom_nav_link" onClick={logOut}>Sign out</NavDropdown.Item>
         </NavDropdown>
 
