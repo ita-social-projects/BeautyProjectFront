@@ -19,6 +19,7 @@ const AddBusiness = () => {
         name: "",
         business_type: "",
         owner: 0,
+        logo: {},
         location: {
             address: "",
             latitude: -1,
@@ -101,7 +102,9 @@ const AddBusiness = () => {
 
     const handleImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
-            setImage(URL.createObjectURL(event.target.files[0]));
+            const img = URL.createObjectURL(event.target.files[0])
+            formValue.logo = img
+            setImage(img)
         }
     }
 
