@@ -11,7 +11,7 @@
 }
 
 .my-profile_header{
-    width: 100%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,6 +19,40 @@
 
 .my-profile_block_title{
     font-size: 64px;
+}
+
+.my-profile_edit_block{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: max-content;
+    height: 25px;
+    border-radius: 0.375rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+    background-color: #0d6efd;
+}
+
+.my-profile_edit_text{
+    width: 100%;
+    font-family: 'Montserrat', cursive;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+    color: white;
+}
+
+.my-profile_edit_logo{
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 5px;
+}
+
+.my-profile_edit_logo img{
+    width: 15px;
+    height: 15px;
 }
 
 .my-profile_main_info{
@@ -33,6 +67,7 @@
 }
 
 .my-profile_left_side{
+    width: 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,18 +75,22 @@
 }
 
 .my-profile_avatar{
-    width: 215px;
-    height: 215px;
+    width: 200px;
+    height: 200px;
 }
 
 .my-profile_avatar img{
-    width: 215px;
-    height: 215px;
+    width: 200px;
+    height: 200px;
 }
 
 .my-profile_bio{
+    width: 100%;
     font-family: 'Montserrat', cursive;
-    margin-bottom: 50px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    text-align: center;
 }
 
 .my-profile_links{
@@ -71,7 +110,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 35px;
+    margin-top: 20px;
 }
 
 .my-profile_right_side{
@@ -86,7 +125,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 80%;
+    width: 90%;
 }
 
 .my-profile_field{
