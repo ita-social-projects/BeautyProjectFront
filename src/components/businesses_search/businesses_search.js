@@ -15,28 +15,59 @@ const BusinessesSearch = () => {
     const lastSessionNumber = currentPage * sessionsPerPage;
     const firstSessionIndex = lastSessionNumber - sessionsPerPage;
 
+    const [searchType, setSearchType] = useState({
+        type: ""
+    })
+
+    const [searchValue, setSearchValue] = useState({
+        keyword: ""
+    })
 
     const [formValue, setFormValue] = useState({
-        latitude: 15.000000,
-        longitude: 15.000000,
-        delta: 55.000000
+        latitude: "",
+        longitude: "",
+        delta: ""
     })
 
     const [businessInfo, setBusinessInfo] = useState(null)
     const [businessDamn, setBusinessDamn] = useState(null)
 
-    const handleSubmit = async (event) => {
+    const handleKeywordSubmit = async (event) => {
         event.preventDefault()
-
+        console.log(searchValue.keyword)
         await axios({
             method: "get",
-            url: BASE_URL + "businesses/nearest/" + formValue.latitude + "/" + formValue.longitude + "/" + formValue.delta + "?limit=100&offset=0"
+            url: BASE_URL + "businesses/active/?search=" + searchValue.keyword
         }).then(response => {
             setBusinessInfo(response.data)
 
+            setSearchType({type: "keyword"})
+            console.log("Search type: " + searchType.type)
+
             getBusinessArray()
             console.log("Server response:" + JSON.stringify(response.data))
-            // render.
+        }).catch(error => {
+            console.log("Error: " + error)
+        })
+    }
+
+    const handleCoordinatesSubmit = async (event) => {
+        event.preventDefault()
+
+        let metersInDegree = Math.round(formValue.delta / 111320 * 1000000) / 1000000
+        await axios({
+            method: "get",
+            url: BASE_URL + "businesses/nearest/" + formValue.latitude + "/" + formValue.longitude + "/" +
+                metersInDegree + "?limit=6&offset=0"
+        }).then(response => {
+            setBusinessInfo(response.data)
+
+            setSearchType({type: "coordinates"})
+            console.log("Search type: " + searchType.type)
+
+            getBusinessArray()
+            console.log("Server response:" + JSON.stringify(response.data))
+
         }).catch(error => {
             console.log("Error: " + error)
         })
@@ -75,6 +106,7 @@ const BusinessesSearch = () => {
                         {limitedSessions.map(session => (
                             <BlockBuilder
                                 key={session.id}
+                                type={searchType.type}
                                 lat={formValue.latitude}
                                 long={formValue.longitude}
                                 {...session} />
@@ -91,25 +123,79 @@ const BusinessesSearch = () => {
                     </div>
                 </Container>
             )
+        } else {
+            businesArray.push(
+                <Container>
+                    <div className="businesses_search_results_wrapper">
+                        {limitedSessions.map(session => (
+                            <BlockBuilder
+                                key={session.id}
+                                type={searchType.type}
+                                lat={formValue.latitude}
+                                long={formValue.longitude}
+                                {...session} />
+                        ))}
+                    </div>
+                </Container>
+            )
         }
 
         setBusinessDamn(businesArray)
     }
 
-    let handleChange = (event) => {
+    let handleKeywordChange = (event) => {
+        setSearchValue({
+            ...searchValue,
+            [event.target.name]: event.target.value
+        });
+        event.preventDefault();
+        console.log(searchValue)
+    }
+
+    let handleCoordinatesChange = (event) => {
         setFormValue({
             ...formValue,
             [event.target.name]: event.target.value
         });
+        console.log(formValue)
     }
 
     return (
         <Container className="businesses_search_inner_wrapper">
             <div className="businesses_search_form_wrapper">
                 <div className="businesses_search_header_wrapper">
-                    <h1 className="businesses_search_header">Find by coordinates</h1>
+                    <h1 className="businesses_search_header">Search by keyword</h1>
                 </div>
-                <form onSubmit={handleSubmit} className="register__form">
+                <form onSubmit={handleKeywordSubmit} className="search_keyword_form">
+                    <div className="form__item">
+                        <label>
+                            Keyword:
+                        </label>
+                        <input
+                            type="text"
+                            name="keyword"
+                            className="form__input"
+                            placeholder={"Crazy barber"}
+                            value={formValue.keyword}
+                            // ref={this.input}
+                            onChange={handleKeywordChange}
+                        />
+                    </div>
+                    <div className="form__item">
+                        <Button
+                            variant="primary"
+                            type="submit"
+                        >
+                            Search
+                        </Button>
+                    </div>
+                </form>
+            </div>
+            <div className="businesses_search_form_wrapper">
+                <div className="businesses_search_header_wrapper">
+                    <h1 className="businesses_search_header">Search by coordinates</h1>
+                </div>
+                <form onSubmit={handleCoordinatesSubmit} className="search_local_form">
                     <div className="form__item">
                         <label>
                             Latitude:
@@ -120,12 +206,12 @@ const BusinessesSearch = () => {
                             className="form__input"
                             placeholder={"0.000000"}
                             value={formValue.latitude}
-                            onChange={handleChange}
+                            onChange={handleCoordinatesChange}
                         />
                     </div>
                     <div className="form__item">
                         <label>
-                            Latitude:
+                            Longitude:
                         </label>
                         <input
                             type="text"
@@ -133,12 +219,12 @@ const BusinessesSearch = () => {
                             className="form__input"
                             placeholder={"0.000000"}
                             value={formValue.longitude}
-                            onChange={handleChange}
+                            onChange={handleCoordinatesChange}
                         />
                     </div>
                     <div className="form__item">
                         <label>
-                            Delta:
+                            Distance limit (m):
                         </label>
                         <input
                             type="text"
@@ -146,7 +232,7 @@ const BusinessesSearch = () => {
                             className="form__input"
                             placeholder={"0.000000"}
                             value={formValue.delta}
-                            onChange={handleChange}
+                            onChange={handleCoordinatesChange}
                         />
                     </div>
                     <div className="form__item">
@@ -154,14 +240,13 @@ const BusinessesSearch = () => {
                             variant="primary"
                             type="submit"
                         >
-                            Submit
+                            Search
                         </Button>
                     </div>
                 </form>
             </div>
             <div className="businesses_search_wrapper">
                 <div
-                    onClick={handleChange}
                 >
                     {businessDamn}
 
