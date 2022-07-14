@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import {NavDropdown, Navbar, Nav, Container, Image, InputGroup, Form, Button} from "react-bootstrap"
+import b_image from "./assets/b.png"
 import user_image from "./assets/user.svg"
 import businesses_image from "./assets/hair-salon.png"
 import order_image from "./assets/price.png"
 import support_image from "./assets/customer-service.png"
-import statistics_image from "./assets/statistics.png"
 import {getLoginInfo, changeLink, axios_request, BASE_URL} from "../../utils/utils.js"
-import b_image from "./assets/b.png"
 import "./TNavbar.css";
 import Cookies from "js-cookie";
 import {useNavigate} from "react-router-dom";
@@ -40,7 +39,7 @@ const TNavbar = () => {
 
   useEffect(() => {
     getUserInfo();
-  }, [getUserInfo]);
+  }, []);
 
 
 
@@ -73,7 +72,6 @@ const TNavbar = () => {
 
         <Nav.Link href="/"> <Image title="My Businesses" className="element__image__nav" src={businesses_image} alt="businesses"/> </Nav.Link>
         <Nav.Link href="/"> <Image title="My Orders" className="element__image__nav" src={order_image} alt="orders"/> </Nav.Link>
-        <Nav.Link href="/"> <Image title="Business Analytics" className="element__image__nav" src={statistics_image} alt="statistics"/> </Nav.Link>
         <Nav.Link href="/"> <Image title="Site Support" className="element__image__nav" src={support_image} alt="support"/> </Nav.Link>
         
       </Nav>
