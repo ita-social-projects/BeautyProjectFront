@@ -54,9 +54,13 @@ const BusinessesSearch = () => {
         event.preventDefault()
         console.log("Keyword: " + searchValue.keyword)
 
+        let search_keyword = "Lviv"
+        if (searchValue.keyword != ""){
+            search_keyword = searchValue.keyword
+        }
         await axios({
             method: "get",
-            url: BASE_URL + "businesses/active/?search=" + searchValue.keyword
+            url: BASE_URL + "businesses/active/?search=" + search_keyword
         }).then(response => {
             setBusinessInfo(response.data)
             console.log("Response: " + setBusinessInfo)
