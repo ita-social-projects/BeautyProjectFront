@@ -14,6 +14,7 @@ import ParticularBusiness from "./components/business_page/business_page";
 import BusinessList from "./components/businesses_list/BusinessesList";
 import AddBusiness from "./components/add_business/add_business";
 import Footer from "./components/footer/footer";
+import MyOrders from "./components/my_orders/MyOrders";
 
 import "./App.css"
 import EditBusiness from "./components/edit_business/edit_business.js";
@@ -62,6 +63,8 @@ class App extends React.Component {
                         <Route path="/all_businesses" element={<BusinessList/>}>
                         </Route>
                         <Route path="/my_profile" element={<MyProfile/>}>
+                        </Route>
+                        <Route path="/my/orders" element={<MyOrders/>}>
                         </Route>
                     </Routes>
                     <Footer />
