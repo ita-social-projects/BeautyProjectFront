@@ -59,7 +59,7 @@ class App extends React.Component {
                         </Route>
                         <Route path="*" element={<NotFound />}>
                         </Route>
-                        <Route path="/allbusinesses" element={<BusinessList/>}>
+                        <Route path="/all_businesses" element={<BusinessList/>}>
                         </Route>
                         <Route path="/my_profile" element={<MyProfile/>}>
                         </Route>
