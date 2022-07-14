@@ -24,22 +24,42 @@ const BusinessesSearch = () => {
     })
 
     const [formValue, setFormValue] = useState({
-        latitude: "",
-        longitude: "",
-        delta: ""
+        latitude: "49.842957",
+        longitude: "24.031111",
+        delta: "2000"
     })
 
     const [businessInfo, setBusinessInfo] = useState(null)
     const [businessDamn, setBusinessDamn] = useState(null)
 
+    let handleKeywordChange = (event) => {
+        setSearchValue({
+            [event.target.name]: event.target.value
+        });
+        event.preventDefault();
+        console.log(searchValue)
+    }
+
+    let handleCoordinatesChange = (event) => {
+        setFormValue({
+            ...formValue,
+            [event.target.name]: event.target.value
+        });
+        event.preventDefault();
+        console.log(formValue)
+    }
+
     const handleKeywordSubmit = async (event) => {
+
         event.preventDefault()
-        console.log(searchValue.keyword)
+        console.log("Keyword: " + searchValue.keyword)
+
         await axios({
             method: "get",
             url: BASE_URL + "businesses/active/?search=" + searchValue.keyword
         }).then(response => {
             setBusinessInfo(response.data)
+            console.log("Response: " + setBusinessInfo)
 
             setSearchType({type: "keyword"})
             console.log("Search type: " + searchType.type)
@@ -55,12 +75,17 @@ const BusinessesSearch = () => {
         event.preventDefault()
 
         let metersInDegree = Math.round(formValue.delta / 111320 * 1000000) / 1000000
+        if (metersInDegree > 10) {
+            metersInDegree = 10
+        }
+
         await axios({
             method: "get",
             url: BASE_URL + "businesses/nearest/" + formValue.latitude + "/" + formValue.longitude + "/" +
                 metersInDegree + "?limit=6&offset=0"
         }).then(response => {
             setBusinessInfo(response.data)
+            console.log("Response: " + setBusinessInfo)
 
             setSearchType({type: "coordinates"})
             console.log("Search type: " + searchType.type)
@@ -87,7 +112,7 @@ const BusinessesSearch = () => {
 
         document.getElementsByClassName("businesses_search_wrapper")[0].style.visibility = "visible";
         businesArray.push(
-            <h1 className="businesses_search_header">Results</h1>
+            <h2 className="businesses_search_header">Results</h2>
         )
 
         if (businessKeys.length > sessionsPerPage) {
@@ -143,28 +168,11 @@ const BusinessesSearch = () => {
         setBusinessDamn(businesArray)
     }
 
-    let handleKeywordChange = (event) => {
-        setSearchValue({
-            ...searchValue,
-            [event.target.name]: event.target.value
-        });
-        event.preventDefault();
-        console.log(searchValue)
-    }
-
-    let handleCoordinatesChange = (event) => {
-        setFormValue({
-            ...formValue,
-            [event.target.name]: event.target.value
-        });
-        console.log(formValue)
-    }
-
     return (
         <Container className="businesses_search_inner_wrapper">
             <div className="businesses_search_form_wrapper">
                 <div className="businesses_search_header_wrapper">
-                    <h1 className="businesses_search_header">Search by keyword</h1>
+                    <h2 className="businesses_search_header">Search by keyword</h2>
                 </div>
                 <form onSubmit={handleKeywordSubmit} className="search_keyword_form">
                     <div className="form__item">
@@ -175,9 +183,8 @@ const BusinessesSearch = () => {
                             type="text"
                             name="keyword"
                             className="form__input"
-                            placeholder={"Crazy barber"}
+                            placeholder={"Business name, type, city, etc."}
                             value={formValue.keyword}
-                            // ref={this.input}
                             onChange={handleKeywordChange}
                         />
                     </div>
@@ -193,7 +200,7 @@ const BusinessesSearch = () => {
             </div>
             <div className="businesses_search_form_wrapper">
                 <div className="businesses_search_header_wrapper">
-                    <h1 className="businesses_search_header">Search by coordinates</h1>
+                    <h2 className="businesses_search_header">Search by coordinates</h2>
                 </div>
                 <form onSubmit={handleCoordinatesSubmit} className="search_local_form">
                     <div className="form__item">
@@ -230,7 +237,7 @@ const BusinessesSearch = () => {
                             type="text"
                             name="delta"
                             className="form__input"
-                            placeholder={"0.000000"}
+                            placeholder={"1234"}
                             value={formValue.delta}
                             onChange={handleCoordinatesChange}
                         />
