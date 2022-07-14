@@ -46,7 +46,6 @@
 .edit-profile_edit_text{
     width: 100%;
     font-family: 'Montserrat', cursive;
-    font-size: 14px;
     text-align: center;
     padding: 5px;
     color: white;
@@ -72,7 +71,6 @@
 .edit-profile_edit_text_cancel{
     width: 100%;
     font-family: 'Montserrat', cursive;
-    font-size: 14px;
     text-align: center;
     padding: 5px;
     color: black;
@@ -232,5 +230,5 @@
  }
 
 .edit-profile_validation_error{
-    box-shadow: inset 0 0 20px rgba(206, 16, 16, 0.25);
+    box-shadow: inset 0 0 20px rgba(220, 19, 19, 0.54);
 }
