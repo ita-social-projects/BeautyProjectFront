@@ -52,7 +52,7 @@ const BusinessList = () => {
     }, []);
 
     function getBusinesses() {
-        axios.get(BASE_URL + `businesses/active/?limit=${10}`)
+        axios.get(BASE_URL + `businesses/active/?limit=${100000}`)
             .then((response) => {
                 const data = response.data.results
                 setBusinesses(data)
