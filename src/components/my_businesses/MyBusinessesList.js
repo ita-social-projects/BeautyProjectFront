@@ -88,6 +88,12 @@ const BusinessList = () => {
         return result
     }
 
+    const navigate = useNavigate();
+
+    const handlerNavigatorRegisterBusiness = () => {
+        navigate("/add_business")
+    }
+
     return (
         <Container fluid={true}>
             <div className="my-business-list_whole_page">
@@ -98,7 +104,14 @@ const BusinessList = () => {
                 </div>
                 <div className="my-business-list_list_of_all">
                     {
-                        businesses.length === 0 ? "There are no businesses here" : getAll()
+                        businesses.length === 0 ?
+                            <div className="my-business-list_no_businesses">
+                                <p>
+                                    There are no businesses here. You can register your first business
+                                    <b className="my-business-list_register_business" onClick={handlerNavigatorRegisterBusiness}> here</b>.
+                                </p>
+                            </div>
+                            : getAll()
                     }
                 </div>
             </div>
