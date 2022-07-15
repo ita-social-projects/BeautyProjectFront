@@ -97,7 +97,7 @@ const SpecialistPage = () => {
 
                     <Card>
                     <Card.Header className="card-order">
-                    <Row><Col className="specialist_first_name"></Col><Col xs={12} className="specialist_last_name"></Col></Row>
+                    <Row><Col className="specialist_first_name"></Col><Col xs={12} className="specialist_patronymic"></Col><Col xs={12} className="specialist_last_name"></Col></Row>
                     </Card.Header>
                         <Col>
                             <img className="specialist_img" alt="specialist_avatar"/>
