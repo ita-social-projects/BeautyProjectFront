@@ -199,6 +199,10 @@ const MyProfile = () => {
         navigate("/edit_profile")
     }
 
+    const handlerNavigatorLogin = () => {
+        navigate("/login")
+    }
+
     return (
         <Container fluid={true}>
             <div className="my-profile_whole_page">
@@ -207,23 +211,22 @@ const MyProfile = () => {
                         <h1>My Profile</h1>
                     </div>
                     <div className="my-profile_edit_block" onClick={handlerNavigatorEditProfile}>
-                        {/*<button className="my-profile_edit_button">*/}
-                        {/*    <img src={edit_logo} alt="EDIT"/>*/}
-                        {/*    Edit my profile*/}
-                        {/*</button>*/}
                         <div className="my-profile_edit_text">
                             <p>
                                 Edit my profile
                             </p>
                         </div>
-                        {/*<div className="my-profile_edit_logo">*/}
-                        {/*    <img src={edit_logo} alt="EDIT"/>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
                 <div className="my-profile_main_info">
                     {
-                        info.length === 0 ? "Please login" : getInfo()
+                        info.length === 0 ?
+                            <div className="my-profile_no_login">
+                                <p className="my-profile_login" onClick={handlerNavigatorLogin}>
+                                    Please login.
+                                </p>
+                            </div>
+                            : getInfo()
                     }
                 </div>
             </div>
