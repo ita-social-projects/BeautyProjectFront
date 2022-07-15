@@ -78,7 +78,7 @@ const BusinessList = () => {
             business_type={business.business_type}
             location={business.location}
             logo={business.logo}
-            id={business.location.id}/>)
+            id={business.id}/>)
             count++
         }
         return result
