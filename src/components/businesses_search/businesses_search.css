@@ -10,7 +10,7 @@
     align-items: center;
 
     min-width: 600px;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .form__input{
