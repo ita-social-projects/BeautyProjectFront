@@ -46,6 +46,8 @@ const BusinessesSearch = () => {
 
         if (datas.length > 0) {
             document.getElementsByClassName("businesses_search_wrapper")[0].style.visibility = "visible";
+        } else {
+            document.getElementsByClassName("businesses_search_wrapper")[0].style.visibility = "hidden";
         }
 
         if (datas.length > sessionsPerPage) {
@@ -128,7 +130,7 @@ const BusinessesSearch = () => {
         }
         axios({
             method: "get",
-            url: BASE_URL + "businesses/active/?limit=100&offset=0&?search=" + search_keyword
+            url: BASE_URL + "businesses/active/?limit=100&offset=0&search=" + search_keyword
         },[]).then(response => {
             setBusinessInfo(response.data.results)
             console.log(businessInfo)
