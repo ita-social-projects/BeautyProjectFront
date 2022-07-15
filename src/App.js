@@ -22,6 +22,7 @@ import "./App.css";
 import MyProfile from "./components/my_profile/MyProfile";
 import BusinessesSearch from "./components/businesses_search/businesses_search";
 import EditProfile from "./components/edit_profile/EditProfile";
+import MyBusinessesList from "./components/my_businesses/MyBusinessesList";
 
 class App extends React.Component {
     render() {
@@ -71,6 +72,8 @@ class App extends React.Component {
                         <Route path="/my/orders" element={<MyOrders/>}>
                         </Route>
                         <Route path="/edit_profile" element={<EditProfile/>}>
+                        </Route>
+                        <Route path="/my_businesses" element={<MyBusinessesList/>}>
                         </Route>
                     </Routes>
 

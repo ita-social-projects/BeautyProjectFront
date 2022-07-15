@@ -17,7 +17,7 @@ const Block_info = (props) => {
     }
 
     const handlerNavigatorOrders = () => {
-        navigate("/")
+        navigate("/my/orders")
     }
 
     const handlerNavigatorReviews = () => {
@@ -25,7 +25,7 @@ const Block_info = (props) => {
     }
 
     const handlerNavigatorBusiness = () => {
-        navigate("/my_businesses/" + props.key)
+        navigate("/my_businesses/")
     }
 
     const DeleteAnAccount = (props) => {
