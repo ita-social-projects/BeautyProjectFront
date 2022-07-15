@@ -128,7 +128,7 @@ const BusinessesSearch = () => {
         }
         axios({
             method: "get",
-            url: BASE_URL + "businesses/active/?search=" + search_keyword
+            url: BASE_URL + "businesses/active/?limit=100&offset=0&?search=" + search_keyword
         },[]).then(response => {
             setBusinessInfo(response.data.results)
             console.log(businessInfo)
@@ -155,7 +155,7 @@ const BusinessesSearch = () => {
         await axios({
             method: "get",
             url: BASE_URL + "businesses/nearest/" + coordinatesValue.latitude + "/" + coordinatesValue.longitude + "/" +
-                metersInDegree + "?limit=6&offset=0"
+                metersInDegree + "?limit=100&offset=0"
         }).then(response => {
             setBusinessInfo(response.data.results)
 
