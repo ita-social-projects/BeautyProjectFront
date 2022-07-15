@@ -13,7 +13,6 @@
 .my-business-list_header{
     width: 87%;
     margin-left: 60px;
-    /*margin-right: -100px;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,7 +80,6 @@
     width: 350px;
     height: 36px;
     font-style: normal;
-    /*font-family: "Arial l";*/
     font-weight: normal;
     font-size: 30px;
 
@@ -92,7 +90,6 @@
     width: 350px;
     height: 36px;
     font-style: normal;
-    /*font-family: "Arial l";*/
     font-weight: normal;
     font-size: 24px;
 
@@ -103,7 +100,6 @@
     width: 350px;
     height: 36px;
     font-style: normal;
-    /*font-family: "Arial l";*/
     font-weight: normal;
     font-size: 20px;
 
@@ -115,7 +111,6 @@
     width: 350px;
     height: 20px;
     font-style: normal;
-    /*font-family: "Arial l";*/
     font-weight: normal;
     font-size: 20px;
     letter-spacing: 0.15em;

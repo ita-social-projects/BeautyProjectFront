@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import {Container} from "react-bootstrap";
-import axios from "axios";
-import {axios_request, BASE_URL, changeLink, getLoginInfo} from "../../utils/utils";
+import {axios_request, BASE_URL, changeLink} from "../../utils/utils";
 import {useNavigate} from "react-router-dom";
 
 import "./MyBusinessesList.css"

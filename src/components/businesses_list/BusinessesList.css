@@ -13,7 +13,6 @@
 .business-list_header{
     width: 87%;
     margin-left: 60px;
-    /*margin-right: -100px;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,6 +25,23 @@
 .business-list_list_of_all{
     display: flex;
     flex-wrap: wrap;
+}
+
+.business-list_no_businesses{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 24px;
+    margin: 150px;
+    cursor: pointer;
+}
+
+.business-list_register_business{
+    font-size: 28px;
+    color: #8d33ac;
+    user-select: none;
 }
 
 .business-list_main_component{
@@ -64,7 +80,6 @@
     width: 350px;
     height: 36px;
     font-style: normal;
-    /*font-family: "Arial l";*/
     font-weight: normal;
     font-size: 30px;
 
@@ -75,7 +90,6 @@
     width: 350px;
     height: 36px;
     font-style: normal;
-    /*font-family: "Arial l";*/
     font-weight: normal;
     font-size: 24px;
 
@@ -86,7 +100,6 @@
     width: 350px;
     height: 36px;
     font-style: normal;
-    /*font-family: "Arial l";*/
     font-weight: normal;
     font-size: 20px;
 
@@ -98,7 +111,6 @@
     width: 350px;
     height: 20px;
     font-style: normal;
-    /*font-family: "Arial l";*/
     font-weight: normal;
     font-size: 20px;
     letter-spacing: 0.15em;
