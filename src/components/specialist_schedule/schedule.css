@@ -11,20 +11,27 @@
 }
 
 .weekend{
-    background-color: #ff9100;
+    font-size: 26px;
+    text-align: center;
+    background-color: #ff9100a5;
     height: 99%;
     width: 99%;
     writing-mode: vertical-lr;
+    padding: 20px 2px 2px 2px;
 }
 
 .order_block{
-    background-color: #1b7796;
+    text-align: center;
+    background-color: #1b779672;
     margin-bottom: 1px;
+    padding: 10px 2px 2px 2px;
 }
 
 .free_block{
-    background-color: #569a51;
+    text-align: center;
+    background-color: #569a5194;
     margin-bottom: 1px;
+    padding: 10px 2px 2px 2px;
 }
 
 .specialist_first_name {
