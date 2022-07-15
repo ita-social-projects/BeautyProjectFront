@@ -46,14 +46,13 @@ const BusinessesSearch = () => {
 
         if (datas.length > 0) {
             document.getElementsByClassName("businesses_search_wrapper")[0].style.visibility = "visible";
-        } else {
-            document.getElementsByClassName("businesses_search_wrapper")[0].style.visibility = "hidden";
         }
 
         if (datas.length > sessionsPerPage) {
 
             return (
                 <Container>
+                    <h2 className="businesses_search_header">Results:</h2>
                     <div className="businesses_search_pagination_wrapper">
                         <PaginationComponent
                             itemsCount={datas.length}
@@ -89,6 +88,7 @@ const BusinessesSearch = () => {
         }
         return (
             <Container>
+                <h2 className="businesses_search_header">Results:</h2>
                 <div className="businesses_search_results_wrapper">
                     {limitedSessions.map(session => (
                         <BlockBuilder
