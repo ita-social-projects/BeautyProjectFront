@@ -1,10 +1,4 @@
-.col{
-    border: 3px solid #8d33ac;
-    height: 90%;
-    border-radius: 2px;
-    margin-right: 1%;
-    text-align: center;
-}
+
 
 .day{
     height: 400px;
@@ -31,4 +25,8 @@
 .free_block{
     background-color: #569a51;
     margin-bottom: 1px;
+}
+
+.specialist_first_name {
+    padding: 0 0 0 0;
 }

@@ -3,8 +3,9 @@ import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 import "./specialist_page.css";
-import {BASE_URL} from "../../utils/utils";
+import {BASE_URL, changeLink} from "../../utils/utils";
 
 
 const SpecialistPage = () => {
@@ -48,7 +49,7 @@ const SpecialistPage = () => {
                     document.getElementsByClassName("specialist_"+key)[0].innerHTML = response.data[key];
                 }
             }
-            document.getElementsByClassName("specialist_img")[0].src = response.data.avatar;
+            document.getElementsByClassName("specialist_img")[0].src = changeLink(response.data.avatar);
             document.getElementsByClassName("specialist_info")[0].style.visibility = "visible";
 
         } catch (error) {
@@ -94,17 +95,16 @@ const SpecialistPage = () => {
                 </div>
                 <Container className="specialist_info">
 
-                    <Row>
+                    <Card>
+                    <Card.Header className="card-order">
+                    <Row><Col className="specialist_first_name"></Col><Col xs={12} className="specialist_last_name"></Col></Row>
+                    </Card.Header>
                         <Col>
                             <img className="specialist_img" alt="specialist_avatar"/>
+                            <Col xs={9} className="specialist_bio"></Col>
                         </Col>
-                    </Row>
-
-                    <Row><Col className="specialist_first_name"></Col></Row>
-                    <Row><Col className="specialist_last_name"></Col></Row>
-                    <Row><Col className="specialist_patronymic"></Col></Row>
-                    <Row><Col className="specialist_bio"></Col></Row>
-                    <Row><Col className="specialist_rating"></Col></Row>
+                    <Row>Specialist Rating: <Col className="specialist_rating"></Col></Row>
+                    </Card>
                 </Container>
             </Container>
         </Container>
