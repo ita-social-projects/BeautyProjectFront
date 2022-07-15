@@ -3,15 +3,22 @@
 }
 
 .specialist_info{
-    width: 20%;
-    border: 3px solid #8d33ac;
-    margin: 20px 20px 20px 20px;
+
+    border: 1px solid #8FBCBB;
+    margin: 12px 12px 12px 12px;
+    padding: 6px 6px 6px 6px;
     visibility: hidden;
 }
 
 .specialist_img{
-    max-width: 70%;
-    height: auto;
+    margin-left: 10px;
+    padding-right: 8px;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    display: block;
+    float: left;
+    
 }
 
 .error_message{
@@ -20,4 +27,8 @@
 
 .form__item{
     margin: 0 auto;
+}
+
+.specialist_bio{
+    margin-left: 22px;
 }
