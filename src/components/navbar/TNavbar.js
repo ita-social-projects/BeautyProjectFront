@@ -5,6 +5,7 @@ import user_image from "./assets/user.svg"
 import businesses_image from "./assets/hair-salon.png"
 import order_image from "./assets/price.png"
 import support_image from "./assets/customer-service.png"
+import search_image from "./assets/search.png"
 import {getLoginInfo, changeLink, axios_request, BASE_URL} from "../../utils/utils.js"
 import "./TNavbar.css";
 import Cookies from "js-cookie";
@@ -78,21 +79,10 @@ const TNavbar = () => {
         <Nav.Link href="/"> <Image title="My Businesses" className="element__image__nav" src={businesses_image} alt="businesses"/> </Nav.Link>
         <Nav.Link href="/my/orders"> <Image title="My Orders" className="element__image__nav" src={order_image} alt="orders"/> </Nav.Link>
         <Nav.Link href="/"> <Image title="Site Support" className="element__image__nav" src={support_image} alt="support"/> </Nav.Link>
-        
-      </Nav>
+        <Nav.Link href="/businesses_search"> <Image title="Businesses Search" className="element__image__nav" src={search_image} alt="search"/> </Nav.Link>
 
-      <Container className="me-auto">
-      <InputGroup>
-      
-        <Form.Control
-          type="text"
-          placeholder="Search for businesses..."
-        />
-        <Button variant="outline-primary">Search</Button>{' '}
-      </InputGroup>
-    </Container>
+      </Nav>
     </Navbar.Collapse>
-        
             </Container>
     </Navbar>
   )
@@ -107,40 +97,29 @@ const TNavbar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
 
-      <NavDropdown 
+      <NavDropdown
                 title={
                     <div >
-                        <img className="user__image__logo" 
-                            src={user_image} 
+                        <img className="user__image__logo"
+                            src={user_image}
                             alt="user pic"
                         />
                     </div>
-                } 
+                }
                 className="ms-auto"
                 id="basic-nav-dropdown">
                     <NavDropdown.Item className="custom_nav_link">Please, kill me</NavDropdown.Item>
                     <NavDropdown.Item a href="/login" className="custom_nav_link">Sign in</NavDropdown.Item>
                     <NavDropdown.Item a href="/register" className="custom_nav_link">Sign up</NavDropdown.Item>
+                    <NavDropdown.Item a href="/businesses_search" className="custom_nav_link">Search</NavDropdown.Item>
             </NavDropdown>
 
-      <InputGroup>
-      
-      <Form.Control
-        type="text"
-        placeholder="Search for businesses..."
-      />
-      <Button variant="outline-primary">Search</Button>{' '}
-    </InputGroup>
-     
             </Navbar.Collapse>
             </Container>
     </Navbar>
-
-      
-
     )
   }
-  
+
 }
 
 export default TNavbar;

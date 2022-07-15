@@ -23,43 +23,115 @@ const BusinessesSearch = () => {
         keyword: ""
     })
 
-    const [formValue, setFormValue] = useState({
+    const [coordinatesValue, setCoordinatesValue] = useState({
         latitude: "49.842957",
         longitude: "24.031111",
         delta: "2000"
     })
 
-    const [businessInfo, setBusinessInfo] = useState(null)
-    const [businessDamn, setBusinessDamn] = useState(null)
+    const [businessInfo, setBusinessInfo] = useState([])
+    const [businessDamn, setBusinessDamn] = useState([])
+
+
+    const getBusinessArray = () => {
+        const datas = businessInfo
+        const businesArray = []
+
+        const limitedSessions = datas.slice(
+            firstSessionIndex,
+            lastSessionNumber
+        );
+
+        console.log("Page sized data: " + limitedSessions)
+
+        if (datas.length > 0) {
+            document.getElementsByClassName("businesses_search_wrapper")[0].style.visibility = "visible";
+        }
+
+        if (datas.length > sessionsPerPage) {
+
+            return (
+                <Container>
+                    <div className="businesses_search_pagination_wrapper">
+                        <PaginationComponent
+                            itemsCount={datas.length}
+                            itemsPerPage={sessionsPerPage}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                            alwaysShown={false}
+                        />
+                    </div>
+                    <div className="businesses_search_results_wrapper">
+                        {limitedSessions.map(session => (
+                            <BlockBuilder
+                                key={session.id}
+                                type={searchType.type}
+                                lat={coordinatesValue.latitude}
+                                long={coordinatesValue.longitude}
+                                {...session} />
+                        ))}
+                    </div>
+                    <div className="businesses_search_pagination_wrapper">
+                        <PaginationComponent
+                            itemsCount={datas.length}
+                            itemsPerPage={sessionsPerPage}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                            alwaysShown={false}
+                        />
+                    </div>
+                </Container>
+            )
+        } else {
+
+        }
+        return (
+            <Container>
+                <div className="businesses_search_results_wrapper">
+                    {limitedSessions.map(session => (
+                        <BlockBuilder
+                            key={session.id}
+                            type={searchType.type}
+                            lat={coordinatesValue.latitude}
+                            long={coordinatesValue.longitude}
+                            {...session} />
+                    ))}
+                </div>
+            </Container>)
+    }
+
 
     let handleKeywordChange = (event) => {
         setSearchValue({
             [event.target.name]: event.target.value
         });
-        event.preventDefault();
+
         console.log(searchValue)
     }
 
     let handleCoordinatesChange = (event) => {
-        setFormValue({
-            ...formValue,
+        setCoordinatesValue({
+            ...coordinatesValue,
             [event.target.name]: event.target.value
         });
-        event.preventDefault();
-        console.log(formValue)
+
+        console.log(coordinatesValue)
     }
 
     const handleKeywordSubmit = async (event) => {
 
         event.preventDefault()
-        console.log("Keyword: " + searchValue.keyword)
 
-        await axios({
+        let search_keyword = "Lviv"
+        if (searchValue.keyword != ""){
+            search_keyword = searchValue.keyword
+        }
+        axios({
             method: "get",
-            url: BASE_URL + "businesses/active/?search=" + searchValue.keyword
-        }).then(response => {
-            setBusinessInfo(response.data)
-            console.log("Response: " + setBusinessInfo)
+            url: BASE_URL + "businesses/active/?search=" + search_keyword
+        },[]).then(response => {
+            setBusinessInfo(response.data.results)
+            console.log(businessInfo)
 
             setSearchType({type: "keyword"})
             console.log("Search type: " + searchType.type)
@@ -74,18 +146,18 @@ const BusinessesSearch = () => {
     const handleCoordinatesSubmit = async (event) => {
         event.preventDefault()
 
-        let metersInDegree = Math.round(formValue.delta / 111320 * 1000000) / 1000000
+
+        let metersInDegree = Math.round(coordinatesValue.delta / 111320 * 1000000) / 1000000
         if (metersInDegree > 10) {
             metersInDegree = 10
         }
 
         await axios({
             method: "get",
-            url: BASE_URL + "businesses/nearest/" + formValue.latitude + "/" + formValue.longitude + "/" +
+            url: BASE_URL + "businesses/nearest/" + coordinatesValue.latitude + "/" + coordinatesValue.longitude + "/" +
                 metersInDegree + "?limit=6&offset=0"
         }).then(response => {
-            setBusinessInfo(response.data)
-            console.log("Response: " + setBusinessInfo)
+            setBusinessInfo(response.data.results)
 
             setSearchType({type: "coordinates"})
             console.log("Search type: " + searchType.type)
@@ -96,76 +168,6 @@ const BusinessesSearch = () => {
         }).catch(error => {
             console.log("Error: " + error)
         })
-    }
-
-    const getBusinessArray = () => {
-        const datas = businessInfo
-        const businessKeys = Object.keys(datas.results)
-        const businesArray = []
-
-        const limitedSessions = datas.results.slice(
-            firstSessionIndex,
-            lastSessionNumber
-        );
-
-        console.log("Page sized data: " + limitedSessions)
-
-        document.getElementsByClassName("businesses_search_wrapper")[0].style.visibility = "visible";
-        businesArray.push(
-            <h2 className="businesses_search_header">Results</h2>
-        )
-
-        if (businessKeys.length > sessionsPerPage) {
-            businesArray.push(
-                <Container>
-                    <div className="businesses_search_pagination_wrapper">
-                        <PaginationComponent
-                            itemsCount={businessKeys.length}
-                            itemsPerPage={sessionsPerPage}
-                            currentPage={currentPage}
-                            setCurrentPage={setCurrentPage}
-                            alwaysShown={false}
-                        />
-                    </div>
-                    <div className="businesses_search_results_wrapper">
-                        {limitedSessions.map(session => (
-                            <BlockBuilder
-                                key={session.id}
-                                type={searchType.type}
-                                lat={formValue.latitude}
-                                long={formValue.longitude}
-                                {...session} />
-                        ))}
-                    </div>
-                    <div className="businesses_search_pagination_wrapper">
-                        <PaginationComponent
-                            itemsCount={businessKeys.length}
-                            itemsPerPage={sessionsPerPage}
-                            currentPage={currentPage}
-                            setCurrentPage={setCurrentPage}
-                            alwaysShown={false}
-                        />
-                    </div>
-                </Container>
-            )
-        } else {
-            businesArray.push(
-                <Container>
-                    <div className="businesses_search_results_wrapper">
-                        {limitedSessions.map(session => (
-                            <BlockBuilder
-                                key={session.id}
-                                type={searchType.type}
-                                lat={formValue.latitude}
-                                long={formValue.longitude}
-                                {...session} />
-                        ))}
-                    </div>
-                </Container>
-            )
-        }
-
-        setBusinessDamn(businesArray)
     }
 
     return (
@@ -184,7 +186,7 @@ const BusinessesSearch = () => {
                             name="keyword"
                             className="form__input"
                             placeholder={"Business name, type, city, etc."}
-                            value={formValue.keyword}
+                            value={coordinatesValue.keyword}
                             onChange={handleKeywordChange}
                         />
                     </div>
@@ -212,7 +214,7 @@ const BusinessesSearch = () => {
                             name="latitude"
                             className="form__input"
                             placeholder={"0.000000"}
-                            value={formValue.latitude}
+                            value={coordinatesValue.latitude}
                             onChange={handleCoordinatesChange}
                         />
                     </div>
@@ -225,7 +227,7 @@ const BusinessesSearch = () => {
                             name="longitude"
                             className="form__input"
                             placeholder={"0.000000"}
-                            value={formValue.longitude}
+                            value={coordinatesValue.longitude}
                             onChange={handleCoordinatesChange}
                         />
                     </div>
@@ -238,7 +240,7 @@ const BusinessesSearch = () => {
                             name="delta"
                             className="form__input"
                             placeholder={"1234"}
-                            value={formValue.delta}
+                            value={coordinatesValue.delta}
                             onChange={handleCoordinatesChange}
                         />
                     </div>
@@ -253,11 +255,9 @@ const BusinessesSearch = () => {
                 </form>
             </div>
             <div className="businesses_search_wrapper">
-                <div
-                >
-                    {businessDamn}
-
-                </div>
+                {
+                    getBusinessArray()
+                }
             </div>
         </Container>
     )
