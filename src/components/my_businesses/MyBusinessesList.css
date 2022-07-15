@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
 }
-.business-list_whole_page{
+.my-business-list_whole_page{
     background-color: white;
     width: 100%;
     font-family: 'Montserrat', sans-serif;
@@ -10,7 +10,7 @@
     margin-left: 35px;
 }
 
-.business-list_header{
+.my-business-list_header{
     width: 87%;
     margin-left: 60px;
     display: flex;
@@ -18,16 +18,16 @@
     align-items: center;
 }
 
-.business-list_block_title{
+.my-business-list_block_title{
     font-size: 64px;
 }
 
-.business-list_list_of_all{
+.my-business-list_list_of_all{
     display: flex;
     flex-wrap: wrap;
 }
 
-.business-list_no_businesses{
+.my-business-list_no_businesses{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -38,13 +38,38 @@
     cursor: pointer;
 }
 
-.business-list_register_business{
+.my-business-list_register_business{
     font-size: 28px;
     color: #8d33ac;
     user-select: none;
 }
 
-.business-list_main_component{
+.my-business_add_block{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: max-content;
+    height: 25px;
+    border-radius: 0.375rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);
+    background-color: #0d6efd;
+}
+
+.my-business_add_text{
+    width: 100%;
+    font-family: 'Montserrat', cursive;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+    color: white;
+    user-select: none;
+}
+
+
+.my-business-list_main_component{
     box-sizing: border-box;
     width: 600px;
     height: 225px;
@@ -57,24 +82,24 @@
     margin: 20px 55px;
 }
 
-.business-list_logo{
+.my-business-list_logo{
     width: 115px;
     height: 115px;
     margin-right: 30px;
 }
 
-.business-list_logo img{
+.my-business-list_logo img{
     width: 115px;
     height: 115px;
 }
 
-.business-list_all_text{
+.my-business-list_all_text{
     width: 350px;
     height: 116px;
     margin-left: 30px;
 }
 
-.business-list_business_name{
+.my-business-list_business_name{
     margin-bottom: 5px;
     margin-top: -30px;
     width: 350px;
@@ -86,7 +111,7 @@
     color: #000000;
 }
 
-.business-list_business_type{
+.my-business-list_business_type{
     width: 350px;
     height: 36px;
     font-style: normal;
@@ -96,7 +121,7 @@
     color: #000000;
 }
 
-.business-list_business_address{
+.my-business-list_business_address{
     width: 350px;
     height: 36px;
     font-style: normal;
@@ -106,7 +131,7 @@
     color: #000000;
 }
 
-.business-list_more{
+.my-business-list_more{
     margin-top: 25px;
     width: 350px;
     height: 20px;

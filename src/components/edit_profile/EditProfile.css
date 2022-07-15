@@ -100,6 +100,23 @@
     min-height: fit-content;
 }
 
+.edit-profile_no_login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 24px;
+    margin: 150px;
+    cursor: pointer;
+}
+
+.edit-profile_login{
+    font-size: 28px;
+    color: #8d33ac;
+    user-select: none;
+}
+
 .edit-profile_left_side{
     width: 20%;
     display: flex;

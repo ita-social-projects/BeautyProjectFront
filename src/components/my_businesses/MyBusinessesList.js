@@ -1,10 +1,9 @@
 import React, {useEffect} from "react";
 import {Container} from "react-bootstrap";
-import axios from "axios";
-import {BASE_URL, changeLink} from "../../utils/utils";
+import {axios_request, BASE_URL, changeLink} from "../../utils/utils";
 import {useNavigate} from "react-router-dom";
 
-import "./BusinessesList.css"
+import "./MyBusinessesList.css"
 
 const Block_businesses = (props) => {
 
@@ -15,30 +14,30 @@ const Block_businesses = (props) => {
     }
 
     return (
-        <div className="business-list_main_component">
-            <div className="business-list_all_text">
-                <div className="business-list_business_name">
+        <div className="my-business-list_main_component">
+            <div className="my-business-list_all_text">
+                <div className="my-business-list_business_name">
                     <p>
                         {props.name}
                     </p>
                 </div>
-                <div className="business-list_business_type">
+                <div className="my-business-list_business_type">
                     <p>
                         {props.business_type}
                     </p>
                 </div>
-                <div className="business-list_business_address">
+                <div className="my-business-list_business_address">
                     <p>
                         {props.location.address}
                     </p>
                 </div>
-                <div className="business-list_more">
+                <div className="my-business-list_more">
                     <p onClick={handlerNavigator}>
                         More
                     </p>
                 </div>
             </div>
-            <div className="business-list_logo">
+            <div className="my-business-list_logo">
                 <img src={changeLink(props.logo != null ? props.logo : "")} alt="logo"/>
             </div>
         </div>
@@ -52,7 +51,11 @@ const BusinessList = () => {
     }, []);
 
     function getBusinesses() {
-        axios.get(BASE_URL + `businesses/active/?limit=${100000}`)
+        axios_request({
+            method: "get",
+            url: BASE_URL + `businesses/`,
+            data: JSON.stringify(businesses)
+        })
             .then((response) => {
                 const data = response.data.results
                 setBusinesses(data)
@@ -92,22 +95,26 @@ const BusinessList = () => {
 
     return (
         <Container fluid={true}>
-            <div className="business-list_whole_page">
-                <div className="business-list_header">
-                    <div className="business-list_block_title">
-                        <h1>All Businesses</h1>
+            <div className="my-business-list_whole_page">
+                <div className="my-business-list_header">
+                    <div className="my-business-list_block_title">
+                        <h1>My Businesses</h1>
                     </div>
-                    <div className="business-list_search">
-                        <h2>Search</h2>
+                    <div className="my-business_add_block" onClick={handlerNavigatorRegisterBusiness}>
+                        <div className="my-business_add_text">
+                            <p>
+                                Add business
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div className="business-list_list_of_all">
+                <div className="my-business-list_list_of_all">
                     {
                         businesses.length === 0 ?
-                            <div className="business-list_no_businesses">
+                            <div className="my-business-list_no_businesses">
                                 <p>
                                     There are no businesses here. You can register your first business
-                                    <b className="business-list_register_business" onClick={handlerNavigatorRegisterBusiness}> here</b>.
+                                    <b className="my-business-list_register_business" onClick={handlerNavigatorRegisterBusiness}> here</b>.
                                 </p>
                             </div>
                             : getAll()

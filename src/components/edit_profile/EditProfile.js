@@ -1,10 +1,8 @@
 import React, {useEffect} from "react";
 import {Container} from "react-bootstrap";
-import axios from "axios";
 import {axios_request, BASE_URL, changeLink, getLoginInfo} from "../../utils/utils";
 import {useNavigate} from "react-router-dom";
 import Cookies from "js-cookie";
-import edit_logo from ".//assets/img/edit.png"
 
 import "./EditProfile.css"
 
@@ -74,6 +72,10 @@ const EditProfile = () => {
         navigate("/my_profile")
     }
 
+    const handlerNavigatorLogin = () => {
+        navigate("/login")
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault()
 
@@ -117,7 +119,7 @@ const EditProfile = () => {
         currentErrorMessage.innerText = error_message;
     }
 
-    const DeleteAnAccount = (info) => {
+    const DeleteAnAccount = () => {
         axios_request({
             method: "delete",
             url: BASE_URL + `user/${getLoginInfo()["user_id"]}` + "/"
@@ -322,7 +324,13 @@ const EditProfile = () => {
                 </div>
                 <div className="edit-profile_main_info">
                     {
-                        info.length === 0 ? "Please login" : getInfo()
+                        info.length === 0 ?
+                            <div className="edit-profile_no_login">
+                                <p className="edit-profile_login" onClick={handlerNavigatorLogin}>
+                                    Please login.
+                                </p>
+                            </div>
+                            : getInfo()
                     }
                 </div>
             </div>

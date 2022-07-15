@@ -21,6 +21,24 @@
     font-size: 64px;
 }
 
+.my-profile_no_login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 24px;
+    margin: 150px;
+    cursor: pointer;
+}
+
+.my-profile_login{
+    font-size: 28px;
+    color: #8d33ac;
+    user-select: none;
+}
+
+
 .my-profile_edit_block{
     display: flex;
     flex-direction: row;
@@ -43,18 +61,6 @@
     padding: 5px;
     color: white;
     user-select: none;
-}
-
-.my-profile_edit_logo{
-    width: 15px;
-    height: 15px;
-    text-align: center;
-    padding: 5px;
-}
-
-.my-profile_edit_logo img{
-    width: 15px;
-    height: 15px;
 }
 
 .my-profile_main_info{
