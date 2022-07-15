@@ -85,7 +85,7 @@ const ParticularBusiness = () => {
 
     const showEditButton = () => {
         if (Object.keys(businessInfo).includes("owner")){
-            if (businessInfo.owner === userInfo.first_name){
+            if (businessInfo.owner === userInfo.first_name + (userInfo.first_name === null ? "" : " " + userInfo.last_name)){
                 return (
                 <div className="business-page_owner_navigation">
                     <div className="business-page_edit_button_block">
