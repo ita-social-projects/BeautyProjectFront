@@ -100,6 +100,13 @@ const BusinessList = () => {
                     <div className="my-business-list_block_title">
                         <h1>My Businesses</h1>
                     </div>
+                    <div className="my-business_add_block" onClick={handlerNavigatorRegisterBusiness}>
+                        <div className="my-business_add_text">
+                            <p>
+                                Add business
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div className="my-business-list_list_of_all">
                     {
