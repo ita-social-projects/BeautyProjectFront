@@ -32,3 +32,16 @@
 .specialist_bio{
     margin-left: 22px;
 }
+
+.specialist-page_add_review_button{
+    border: none;
+    background: #D9D9D9;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: all ease-in-out 0.3s;
+}
+
+.specialist-page_add_review_button:hover{
+    background: none;
+    border: 1px solid #000;
+}

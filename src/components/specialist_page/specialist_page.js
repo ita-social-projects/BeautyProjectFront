@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import "./specialist_page.css";
 import {BASE_URL, changeLink} from "../../utils/utils";
+import AddReviewModal from "../add_review/add_review";
 
 
 const SpecialistPage = () => {
@@ -43,7 +44,7 @@ const SpecialistPage = () => {
             });
 
             document.getElementsByClassName("specialist_img")[0].src = response.data.avatar;
-            
+
             for (const key of fields){
                 if (response.data[key] !== ""){
                     document.getElementsByClassName("specialist_"+key)[0].innerHTML = response.data[key];
@@ -103,10 +104,15 @@ const SpecialistPage = () => {
                             <img className="specialist_img" alt="specialist_avatar"/>
                             <Col xs={9} className="specialist_bio"></Col>
                         </Col>
-                    <Row>Specialist Rating: <Col className="specialist_rating"></Col></Row>
+                    <Row>Specialist Rating: <Col className="specialist_rating"></Col>
+                        <button type="button" className="specialist-page_add_review_button" data-bs-toggle="modal" data-bs-target="#addReviewModal">
+                            Add review
+                        </button>
+                    </Row>
                     </Card>
                 </Container>
             </Container>
+            <AddReviewModal to_user={formValue.id}/>
         </Container>
     )
 }

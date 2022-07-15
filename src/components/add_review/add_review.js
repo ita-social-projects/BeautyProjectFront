@@ -7,7 +7,7 @@ import {BASE_URL, axios_request, getLoginInfo} from "../../utils/utils";
 import add_review from "./add_review.css";
 
 const AddReviewModal = (props) => {
-    const [rating, setRating] = React.useState(null)
+    const [rating, setRating] = React.useState(0)
     const [clicked, setClicked] = React.useState(false)
     const [formValue, setFormValue] = React.useState({
         text_body: "",
@@ -38,9 +38,18 @@ const AddReviewModal = (props) => {
                 data: addReviewFormData
             });
             $("#addReviewModal .btn-close").click()
-            window.location.reload()
+            setFormValue({
+                text_body: "",
+                from_user: formValue.from_user,
+                to_user: formValue.to_user
+            })
+
+            setRating(0)
+
+            clearStarsState()
 
         } catch (error) {
+            console.log(error.response)
             const errors = error.response.data
             for (const currentKey of Object.keys(errors)) {
                 setError(currentKey, errors[currentKey])
@@ -49,6 +58,9 @@ const AddReviewModal = (props) => {
     }
 
     const setError = (key, error_message) => {
+        if (key === "error"){
+            key = "text_body"
+        }
         let currentElement = document.querySelector(`[name='${key}']`);
         let currentErrorMessage = currentElement.parentElement.querySelector("p");
         currentElement.classList.add("validation_error");
@@ -67,6 +79,13 @@ const AddReviewModal = (props) => {
         setClicked(true)
         changeStarsState(event, id)
         setRating(id + 1)
+    }
+
+    const clearStarsState = () => {
+        let starsList = document.querySelectorAll(".add-review_star svg")
+        for (let i = 0; i < starsList.length; i++) {
+            starsList[i].classList.remove("active")
+        }
     }
 
     const changeStarsState = (event, id) => {
@@ -99,9 +118,6 @@ const AddReviewModal = (props) => {
 
     return (
         <Container>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#addReviewModal">
-                Add review
-            </button>
             <div className="modal fade" id="addReviewModal" tabIndex="-1" aria-labelledby="addReviewModalLabel"
                  aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">

@@ -52,8 +52,6 @@ class App extends React.Component {
                         <Route path="/statistic/:businessId" element={<StatisticPage />} />
                         <Route path="/specialist" element={<SpecialistPage/>}>
                         </Route>
-                        <Route path="/add_review" element={<AddReviewModal to_user="63"/>}>
-                        </Route>
                         <Route path="/schedule" element={<SpecialistSchedule/>}>
                         </Route>
                         <Route path="/businesses_search" element={<BusinessesSearch/>}>
