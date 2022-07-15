@@ -94,10 +94,8 @@ const TNavbar = () => {
           <Image src={b_image} className="brand_icon"></Image>
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-
-      <NavDropdown
+        <Nav variant="tabs" className="me-auto">
+        <NavDropdown
                 title={
                     <div >
                         <img className="user__image__logo"
@@ -111,10 +109,10 @@ const TNavbar = () => {
                     <NavDropdown.Item className="custom_nav_link">Please, kill me</NavDropdown.Item>
                     <NavDropdown.Item a href="/login" className="custom_nav_link">Sign in</NavDropdown.Item>
                     <NavDropdown.Item a href="/register" className="custom_nav_link">Sign up</NavDropdown.Item>
-                    <NavDropdown.Item a href="/businesses_search" className="custom_nav_link">Search</NavDropdown.Item>
             </NavDropdown>
-
-            </Navbar.Collapse>
+            <Nav.Link href="/businesses_search"> <Image title="Businesses Search" className="element__image__nav" src={search_image} alt="search"/> </Nav.Link>
+            </Nav>
+       
             </Container>
     </Navbar>
     )
